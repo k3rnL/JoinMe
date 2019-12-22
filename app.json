@@ -29,7 +29,12 @@
       "bundleIdentifier": "com.k3rnl.joinme"
     },
     "android": {
-      "package": "com.k3rnl.joinme"
+      "package": "com.k3rnl.joinme",
+      "config": {
+        "googleMaps": {
+          "apiKey": "AIzaSyC-8auXAHTy56ZoleQzQpXVGgrKU-rSGMQ"
+        }
+      }
     }
   }
 }
