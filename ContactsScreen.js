@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Text, View, StyleSheet, Alert, FlatList } from 'react-native';
-import * as Contacts from 'expo-contacts';
 import * as Constants from "expo-constants";
+import * as Contacts from 'expo-contacts';
 
 export default class ContactsScreen extends Component {
 
