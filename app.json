@@ -30,6 +30,7 @@
     },
     "android": {
       "package": "com.k3rnl.joinme",
+      "googleServicesFile": "./google-services.json",
       "config": {
         "googleMaps": {
           "apiKey": "AIzaSyC-8auXAHTy56ZoleQzQpXVGgrKU-rSGMQ"
