@@ -4,7 +4,7 @@ import { createBottomTabNavigator } from 'react-navigation-tabs';
 import ContactsScreen from './ContactsScreen';
 import MapScreen from "./MapScreen";
 import * as firebase from "firebase";
-import PartyListScreen from "./PartyListScreen";
+import { PartyListScreen } from "./Parties";
 
 
 const TabNavigator = createBottomTabNavigator({

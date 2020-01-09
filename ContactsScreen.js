@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Text, View, StyleSheet, Alert, FlatList } from 'react-native';
 import * as Constants from "expo-constants";
 import * as Contacts from 'expo-contacts';
+import {ApiService} from "./ApiService";
 
 export default class ContactsScreen extends Component {
 
@@ -26,7 +27,9 @@ export default class ContactsScreen extends Component {
         const elapsed = (Date.now() - time) / 1000;
         // Alert.alert('Contacts Read', `Read ${contacts.data.length} contacts in ${elapsed} seconds`);
         this.setState({contacts: contacts.data});
-        console.log(this.state);
+        // console.log(this.state);
+
+        console.log('end');
     }
 
     render() {
