@@ -1,21 +1,47 @@
 import React, {Component} from "react";
-import { Text, View, TextInput, TouchableOpacity, Modal, StyleSheet } from 'react-native';
+import { Text, View, TextInput, TouchableOpacity, Modal, StyleSheet, FlatList, Button } from 'react-native';
+import { createStackNavigator } from 'react-navigation-stack';
+import { createAppContainer } from 'react-navigation';
 import { WebView } from 'react-native-webview'
 import * as firebase from "firebase";
 import url from 'url';
+import {ApiService} from "../ApiService";
+import PartyScreen from './Party';
 
 const captchaUrl = 'https://joinme-2aa7a.firebaseapp.com/captcha.html'; // link to your captcha.html
 
-export default class PartyListScreen extends Component {
+export class PartyListScreen extends Component {
 
     constructor (props) {
         super(props);
         this.state = {
+            loading: true,
             showModal: false,
             codeIsSent: false,
             confirmation: {},
             errorMessage: ""
         }
+    }
+
+    componentDidMount() {
+        this.listener = firebase.auth().onAuthStateChanged(
+            async authUser => {
+                if (authUser === null) {
+                    this.setState({loading: false, isAuthenticated: false});
+                }
+                else {
+                    // let token = await firebase.messaging().getToken();
+                    let parties = await ApiService.getUserParties(authUser.uid);
+                    // await ApiService.registerUser(authUser.uid, '');
+                    this.setState({loading: false, isAuthenticated: true, user: authUser, parties: parties.parties});
+                }
+                console.log('authUser:' + authUser);
+            },
+            () => {
+                this.setState({ loading: false, isAuthenticated: false });
+                console.log('ERROR ON LOGIN')
+                },
+        );
     }
 
     _handleResponse = data => {
@@ -50,17 +76,17 @@ export default class PartyListScreen extends Component {
                 this.setState({confirmation, codeIsSent: true, input_value: "", errorMessage: ""})
             })
             .catch((err) => {
-                this.setState({errorMessage: "Oops! something is wrong"});
+                this.setState({errorMessage: "Oops! something is wrong " + err});
             });
     };
 
     _confirmCode = () => {
         this.state.confirmation.confirm(this.state.input_value)
             .then((result) => {
-                this.setState({isAuthenticated: true});
+                // handled in componentDidMount
             })
             .catch((err) => {
-                this.setState({errorMessage: "Oops! something is wrong"});
+                this.setState({errorMessage: "Oops! something is wrong " + err});
             });
     };
 
@@ -148,8 +174,21 @@ export default class PartyListScreen extends Component {
             headerText
         } = styles;
 
+        console.log(this.state);
+
         return (
             <View style={container}>
+                <Button onPress={() => this.setState({loading: false, isAuthenticated: false})} title={'Log out'} />
+                <FlatList
+                    data={this.state.parties}
+                    renderItem={({item}) =>
+                        <TouchableOpacity onPress={() => {
+                            this.props.navigation.navigate('PartyScreen', {party: item});
+                            }
+                        }>
+                            <Text style={styles.item}>{item.name}</Text>
+                        </TouchableOpacity>}
+                />
                 <Text style={headerText}>You are successfully signed In</Text>
             </View>
         )
@@ -157,15 +196,29 @@ export default class PartyListScreen extends Component {
 
 
     render() {
+        const {
+            container,
+            headerText
+        } = styles;
 
+        if (this.state.loading)
+            return (<View style={container}>
+                        {/*<Button onPress={this.setState({loading: false, isAuthenticated: false})} title={'Log out'} />*/}
+                        <Text>Loading...</Text>
+            </View>);
 
         return (
             this.state.isAuthenticated ? this.renderMainScreen() : this.renderLoginScreen()
-
         );
     }
 }
 
+const stackNavigator = createStackNavigator({
+    PartyListScreen,
+    PartyScreen
+});
+
+export default createAppContainer(stackNavigator);
 
 const styles = StyleSheet.create({
     container: {
@@ -173,6 +226,11 @@ const styles = StyleSheet.create({
         padding: 10,
         backgroundColor: 'white',
         alignItems: 'center',
+    },
+    item: {
+        padding: 10,
+        fontSize: 18,
+        height: 44,
     },
     headerText: {
         color: '#135cb3',
@@ -242,4 +300,3 @@ const styles = StyleSheet.create({
 //         height: 44,
 //     },
 // });
-
