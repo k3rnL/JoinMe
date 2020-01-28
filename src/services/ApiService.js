@@ -2,12 +2,12 @@
 
 const API_URL = 'https://join-me-api.herokuapp.com';
 
-class Party {
-    name;
-    id;
-    address;
-    members;
-}
+// class Party {
+//     name;
+//     id;
+//     address;
+//     members;
+// }
 
 export class ApiService {
 
