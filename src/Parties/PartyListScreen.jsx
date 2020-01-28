@@ -5,7 +5,7 @@ import { createAppContainer } from 'react-navigation';
 import { WebView } from 'react-native-webview'
 import * as firebase from "firebase";
 import url from 'url';
-import {ApiService} from "../ApiService";
+import {ApiService} from "../services/ApiService";
 import PartyScreen from './Party';
 
 const captchaUrl = 'https://joinme-2aa7a.firebaseapp.com/captcha.html'; // link to your captcha.html

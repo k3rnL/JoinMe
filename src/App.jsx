@@ -5,6 +5,7 @@ import InputBar from './components/InputBar';
 import * as firebase from 'firebase';
 import firebaseConfig from '../config/firebase.js';
 import MapScreen from './pages/MapScreen';
+import ContactsScreen from './pages/ContactsScreen';
 
 firebase.initializeApp(firebaseConfig);
 
@@ -18,7 +19,7 @@ export default registerRootComponent(() => {
         <MapScreen />
       </View>
       <View style={styles.footer}>
-        <Text>Footer</Text>
+        <ContactsScreen />
       </View>
     </View>
   );
