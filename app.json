@@ -1,5 +1,6 @@
 {
   "expo": {
+    "entryPoint": "./src/App.jsx",
     "name": "JoinMe",
     "slug": "join-me",
     "privacy": "public",
