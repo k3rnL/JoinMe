@@ -1,4 +1,4 @@
-import Requests from '../services/Requests';
+import Requests from './Requests';
 
 /*
 // Party {

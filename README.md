@@ -11,3 +11,6 @@ Install expo application on your mobile phone and scan it for start the build an
 
 Expo start on your web browser.
 Install expo application and scan the QR code with it.
+
+
+/!\ Il faut rajouter BIEN PLUS DE CHOSES ICI VOIR LE SUJET !

@@ -1,7 +1,7 @@
 // TODO: Get from a file config
 const API_URL = 'https://join-me-api.herokuapp.com';
 
-export default class Request {
+class Request {
     constructor() {
         this.headers = {
             Accept: 'application/json',
@@ -36,3 +36,5 @@ export default class Request {
         }
     }
 }
+
+export default new Request();

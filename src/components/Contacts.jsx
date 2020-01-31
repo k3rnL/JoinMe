@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import { Text, View, StyleSheet, Alert, FlatList } from 'react-native';
+import { Text, View, StyleSheet, FlatList } from 'react-native';
 import * as Constants from "expo-constants";
 import * as Contacts from 'expo-contacts';
-import { currentTime, timeSubstraction} from '../../libs/DateHelper';
+
 export default class ContactsScreen extends Component {
 
     state = {
@@ -10,8 +10,9 @@ export default class ContactsScreen extends Component {
     };
 
     async componentDidMount() {
-        const time = currentTime();
         const permission = await Contacts.requestPermissionsAsync();
+
+        // TODO: Manage error
         if (permission.status !== 'granted') { return; }
 
         const contacts = await Contacts.getContactsAsync({
@@ -23,10 +24,7 @@ export default class ContactsScreen extends Component {
             pageOffset: 0,
         });
 
-        const elapsed = timeSubstraction(currentTime(), time) / 1000;
-        // Alert.alert('Contacts Read', `Read ${contacts.data.length} contacts in ${elapsed} seconds`);
         this.setState({contacts: contacts.data});
-        // console.log(this.state);
     }
 
     render() {
