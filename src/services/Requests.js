@@ -3,7 +3,7 @@ const API_URL = 'https://join-me-api.herokuapp.com';
 
 class Request {
     constructor() {
-        this.headers = {
+        this.oui = {
             Accept: 'application/json',
             'Content-Type': 'application/json',
         }
@@ -14,7 +14,7 @@ class Request {
             const response = await fetch(API_URL + url,
                 {
                     method: 'GET',
-                    headers,
+                    headers: this.headers,
                 });
             return { response: response.json(), error: null };
         } catch (error) {
@@ -27,7 +27,7 @@ class Request {
             const response = await fetch(API_URL + url,
                 {
                     method: 'POST',
-                    headers,
+                    headers: this.headers,
                     body,
                 });
             return { response: response.json(), error: null };

@@ -1,20 +1,12 @@
 import React, { Component } from 'react';
 import { View, StyleSheet } from 'react-native';
-import MapScreen from './../components/Map';
-import ContactsScreen from '../components/ContactsList';
-import {Button} from "react-native";
+import ContactsList from '../components/ContactsList'
 
-class Home extends Component {
+class ContactSelection extends Component {
     render() {
         return (
             <View style={styles.container}>
-                <View style={styles.header}>
-                    <Button title={'Contacts'} onPress={() => this.props.navigation.navigate('ContactSelection')}/>
-                    <Button title={'Auth'} onPress={() => this.props.navigation.navigate('Auth')}/>
-                </View>
-                <View style={styles.content}>
-                    <MapScreen />
-                </View>
+                <ContactsList/>
             </View>
         );
     }
@@ -47,4 +39,4 @@ const styles = StyleSheet.create({
     },
 });
 
-export default Home;
+export default ContactSelection;

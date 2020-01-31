@@ -2,37 +2,16 @@ import React, { Component } from 'react';
 import {View, Text, StyleSheet} from 'react-native';
 import { createAppContainer } from 'react-navigation';
 import { createStackNavigator } from 'react-navigation-stack';
-
 import { registerRootComponent } from 'expo';
-import * as firebase from 'firebase';
 import Home from './pages/HomePage';
-
-import firebaseConfig from '../config/firebase.js';
+import Auth from './pages/AuthPage'
 import InputBar from "./components/InputBar";
-import MapScreen from "./components/Map";
-import ContactsScreen from "./components/Contacts";
-import {Button} from "react-native";
+import ContactsScreen from "./components/ContactsList";
+import ContactSelection from "./pages/ContactSelectionPage";
+import firebaseConfig from "../config/firebase";
+import * as firebase from "firebase";
 
-// const AppNavigator = createStackNavigator({
-//   Home: {
-//     screen: Home,
-//   },
-// });
-
-// export default createAppContainer(AppNavigator);
-
-class Main extends Component {
-    render() {
-        return (
-            <View style={styles.container}>
-                <View style={styles.content}>
-                    <Button title={'ViewA'} onPress={() => this.props.navigation.navigate('ViewA')}/>
-                    <Button title={'ViewB'} onPress={() => this.props.navigation.navigate('ViewB')}/>
-                </View>
-            </View>
-        );
-    }
-}
+firebase.initializeApp(firebaseConfig);
 
 class ViewA extends Component {
     render() {
@@ -52,43 +31,21 @@ class ViewA extends Component {
     }
 }
 
-const EntryStack = createStackNavigator({
-    Main : {
-        screen: Main
+const HomeStack = createStackNavigator({
+    Home : {
+        screen: Home
     },
-    ViewA : {
-        screen: ViewA
+    ContactSelection : {
+        screen: ContactSelection
     },
-    ViewB : {
-        screen: ViewA
+    Auth : {
+        screen: Auth
     }
+}, {
+    initialRouteName: 'Home'
 });
 
-const TestStack = createStackNavigator({
-    ViewA : {
-        screen: ViewA
-    },
-    ViewB : {
-        screen: ViewA
-    }
-});
-
-class App extends React.Component{
-    constructor(props) {
-        super(props);
-        firebase.initializeApp(firebaseConfig);
-    }
-
-    render(){
-        return <EntryStack />;
-    }
-}
-
-registerRootComponent(createAppContainer(EntryStack));
-// const AppContainer = createAppContainer(EntryStack)
-// export default AppContainer;
-
-// AppRegistry.registerComponent('main', () => App);
+registerRootComponent(createAppContainer(HomeStack));
 
 const styles = StyleSheet.create({
     container: {

@@ -3,7 +3,7 @@ import { Text, View, StyleSheet, FlatList } from 'react-native';
 import * as Constants from "expo-constants";
 import * as Contacts from 'expo-contacts';
 
-export default class ContactsScreen extends Component {
+export default class ContactsList extends Component {
 
     state = {
         contacts: []
