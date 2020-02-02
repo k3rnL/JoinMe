@@ -32,9 +32,7 @@ export class PartyListScreen extends Component {
                 }
                 else {
                     // let token = await firebase.messaging().getToken();
-                    alert('oui');
                     let parties = await ApiService.getUserParties(authUser.uid);
-                    alert('non');
                     // await ApiService.registerUser(authUser.uid, '');
                     this.setState({loading: false, isAuthenticated: true, user: authUser, parties: parties.parties});
                 }
