@@ -35,6 +35,33 @@ class Request {
             return { reponse: null, error };
         }
     }
+
+    async delete(url) {
+        try {
+            const response = await fetch(API_URL + url,
+                {
+                    method: 'DELETE',
+                    headers: this.headers,
+                });
+            return { response: response.json(), error: null };
+        } catch (error) {
+            return { reponse: null, error };
+        }
+    }
+
+    async patch(url, body = {}) {
+        try {
+            const response = await fetch(API_URL + url,
+                {
+                    method: 'PATCH',
+                    headers: this.headers,
+                    body
+                });
+            return { response: response.json(), error: null };
+        } catch (error) {
+            return { reponse: null, error };
+        }
+    }
 }
 
 export default new Request();

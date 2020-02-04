@@ -5,6 +5,7 @@ import ContactsScreen from '../components/ContactsList';
 import {Button} from "react-native";
 import {connect} from 'react-redux'
 import PropTypes from 'prop-types'
+import * as firebase from "firebase";
 
 class Home extends Component {
     render() {
@@ -13,6 +14,7 @@ class Home extends Component {
                 <View style={styles.header}>
                     <Button title={'Contacts'} onPress={() => this.props.navigation.navigate('ContactSelection')}/>
                     <Button title={'Auth'} onPress={() => this.props.navigation.navigate('Auth')}/>
+                    <Button title={'logout'} onPress={async () => await firebase.auth().signOut()}/>
                     <Text>{this.props.uid}</Text>
                 </View>
                 <View style={styles.content}>
