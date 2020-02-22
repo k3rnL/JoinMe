@@ -1,48 +1,50 @@
 import React from 'react';
 import {
-  Text, View, StyleSheet, TextInput,
+  View, StyleSheet, TextInput,
 } from 'react-native';
-import Button from './Button';
 
-export default function InputBar() {
-  const [value, onChangeText] = React.useState('Useless Placeholder');
+export default function InputBar(props) {
+  const { placeholder = 'placeholder', style = {}, textStyle = {}, ...otherProps } = props;
+
+  // const [value, onChangeText] = React.useState("");
 
   return (
     <View style={styles.container}>
-      <View style={styles.containerInput}>
         <TextInput
           style={styles.input}
-          onChangeText={(text) => onChangeText(text)}
-          value={value}
+          // onChangeText={(text) => onChangeText(text)}
+          // value={value}
+          placeholder={placeholder}
+          {...otherProps}
         />
-      </View>
-      <View style={styles.addButton}>
-        <Button />
-      </View>
     </View>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    alignItems: 'stretch',
-    justifyContent: 'center',
-    flexDirection: 'row',
-  },
-  containerInput: {
-    flex: 3,
-    alignItems: 'center',
-    justifyContent: 'center',
-    backgroundColor: 'grey',
-  },
-  input: {
     height: 40,
     width: 300,
     borderColor: 'white',
     borderWidth: 1,
+    borderRadius: 25,
+    justifyContent: 'center',
+    alignItems: 'center',
+
+    backgroundColor: 'white',
+
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 4,
+    },
+    shadowOpacity: 0.32,
+    shadowRadius: 5.46,
+
+    elevation: 9,
   },
-  addButton: {
-    backgroundColor: 'red',
+  input: {
+    width: "90%",
+    height: "100%",
   },
 });

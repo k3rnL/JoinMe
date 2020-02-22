@@ -1,34 +1,35 @@
 import React from 'react';
 import {
-  Text, View, StyleSheet, TextInput,
+    Text, View, StyleSheet, TouchableOpacity,
 } from 'react-native';
 
 import { Strokes, Shadows } from '../constants';
 
-console.log('Strokes :: ', Strokes);
+export default function Button(props) {
 
+    const { title = 'Button', style = {}, textStyle = {}, onPress } = props;
 
-export default function InputBar() {
-
-  return (
-    <View style={styles.container}>
-      <Text style={styles.text}>salut</Text>
-    </View>
-  );
+    return (
+        <View style={[styles.button, style]}>
+            <TouchableOpacity onPress={onPress}>
+                <Text style={[styles.text, textStyle]}>{props.title}</Text>
+            </TouchableOpacity>
+        </View>
+    );
 }
 
 const styles = StyleSheet.create({
-  container: {
-    height: 62,
-    width: 200,
-    alignItems: 'center',
-    justifyContent: 'center',
-    backgroundColor: '#2F74C5',
-    shadowColor: "#000",
-    ...Strokes,
-    ...Shadows,
-  },
-  text: {
-    color: 'white'
-  }
+    button: {
+        height: 42,
+        width: 160,
+        alignItems: 'center',
+        justifyContent: 'center',
+        backgroundColor: '#2F74C5',
+        shadowColor: "#000",
+        ...Strokes,
+        ...Shadows,
+    },
+    text: {
+        color: 'white'
+    }
 });
