@@ -52,7 +52,7 @@ export class ApiService {
 
 
     static async registerUser(uid, fcmToken) {
-        const { response, error } = await Requests.post('/users/register', JSON.stringify({uid, fcm_token: fcmToken}));
+        const { response, error } = await Requests.post('/users/register', {uid, fcm_token: fcmToken});
         if (error) throw error;
         await response;
     }

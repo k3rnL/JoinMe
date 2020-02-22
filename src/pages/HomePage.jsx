@@ -11,6 +11,7 @@ import {setPartyLocation} from "../stores/action/partyCreation"
 import * as Permissions from "expo-permissions";
 import {Notifications} from "expo";
 import store from "../stores";
+import {ApiService} from "../services/ApiService";
 
 class Home extends Component {
 
@@ -20,7 +21,6 @@ class Home extends Component {
             inputValue: ''
         };
     }
-
 
     async componentDidMount() {
         const {status} = await Permissions.askAsync(Permissions.NOTIFICATIONS);
@@ -39,7 +39,7 @@ class Home extends Component {
         console.log(JSON.stringify(store.getState().profile.uid));
         console.log('UID: ' + this.props);
         console.dir(this.props);
-        // ApiService.registerUser(this.state.uid)
+        await ApiService.registerUser(store.getState().profile.uid, token);
     }
 
     render() {
