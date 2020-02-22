@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { View } from 'react-native';
 import * as firebase from "firebase";
-import {updateUid} from "../action/profile";
+import {updateUid} from "../stores/action/profile";
 import {connect, Provider} from "react-redux";
 
 

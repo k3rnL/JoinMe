@@ -1,4 +1,5 @@
 import Requests from './Requests';
+import {add} from "react-native-reanimated";
 
 /*
 // Party {
@@ -11,6 +12,7 @@ import Requests from './Requests';
 export class ApiService {
 
     static async createParty(name, address) {
+        console.log('name:'+name+' addr:'+address);
         const { response, error } = await Requests.post('/party/create', {name, address});
         if (error) throw error;
         return response;
