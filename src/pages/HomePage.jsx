@@ -8,6 +8,9 @@ import PropTypes from 'prop-types'
 import * as firebase from "firebase";
 import InputBar from "../components/InputBar";
 import {setPartyLocation} from "../stores/action/partyCreation"
+import * as Permissions from "expo-permissions";
+import {Notifications} from "expo";
+import store from "../stores";
 
 class Home extends Component {
 
@@ -16,6 +19,27 @@ class Home extends Component {
         this.state = {
             inputValue: ''
         };
+    }
+
+
+    async componentDidMount() {
+        const {status} = await Permissions.askAsync(Permissions.NOTIFICATIONS);
+        // only asks if permissions have not already been determined, because
+        // iOS won't necessarily prompt the user a second time.
+        // On Android, permissions are granted on app installation, so
+        // `askAsync` will never prompt the user
+
+        // Stop here if the user did not grant permissions
+        if (status !== 'granted') {
+            alert('No notification permissions!');
+            return;
+        }
+        let token = await Notifications.getExpoPushTokenAsync();
+        console.log('Expo FCM ' + token);
+        console.log(JSON.stringify(store.getState().profile.uid));
+        console.log('UID: ' + this.props);
+        console.dir(this.props);
+        // ApiService.registerUser(this.state.uid)
     }
 
     render() {
