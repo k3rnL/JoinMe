@@ -32,11 +32,10 @@ function Home(props) {
                 }} title={'Create a party !  🎉'} style={styles.buttonCreate}/>
 
                 <ProfileButton style={styles.profile} onPress={() => {
-                    props.dispatch(setPartyLocation('35 avenue garonette toulouse'));
-                    props.navigation.navigate('PartyCreation');
+                    props.navigation.navigate('Profile');
                 }}/>
                 <ListButton style={styles.partyList} onPress={() => {
-                    props.navigation.navigate('PartyCreation');
+                    props.navigation.navigate('PartyList');
                 }}/>
             </View>
 
@@ -110,6 +109,5 @@ const styles = StyleSheet.create({
 });
 
 export default connect(state => {
-    console.log(state);
     return {uid: state.profile.uid};
 })(Home);

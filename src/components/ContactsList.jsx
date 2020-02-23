@@ -1,87 +1,93 @@
-import React, {Component} from 'react';
+import React, {useState, useEffect} from 'react';
 import {Text, View, StyleSheet, FlatList, CheckBox, TouchableOpacity} from 'react-native';
 import * as Constants from "expo-constants";
 import * as Contacts from 'expo-contacts';
 
-export default class ContactsList extends Component {
 
-    state = {
-        contacts: [],
-        selected: {}
-    };
+async function loadContacts(setContact) {
+    const permission = await Contacts.requestPermissionsAsync();
 
-    async componentDidMount() {
-        const permission = await Contacts.requestPermissionsAsync();
-
-        if (permission.status !== 'granted') {
-            return;
-        }
-
-        const contacts = await Contacts.getContactsAsync({
-            fields: [
-                Contacts.PHONE_NUMBERS,
-                Contacts.EMAILS,
-            ],
-            pageSize: 10000,
-            pageOffset: 0,
-        });
-
-        this.setState({contacts: contacts.data});
+    if (permission.status !== 'granted') {
+        return;
     }
 
-    render() {
-        const {filter = ''} = this.props;
+    const contacts = await Contacts.getContactsAsync({
+        fields: [
+            Contacts.PHONE_NUMBERS,
+            Contacts.EMAILS,
+        ],
+        pageSize: 10000,
+        pageOffset: 0,
+    });
 
-        let filtered = [];
-        for (let i = 0; i < this.state.contacts.length; i++) {
-            const contact = this.state.contacts[i];
-            if (contact.name.match('(' + filter + ')\\w+'))
-                filtered.push(contact);
-        }
+    const contactsCleaned = contacts.data.filter((contact, index) => {
+        return contacts.data.findIndex((obj) => {
+            return obj.id === contact.id;
+        })
+    });
 
-        return (
-            <View style={styles.container}>
-                <FlatList
-                    data={filtered}
-                    renderItem={({item}) => this.renderItem(item)}
-                />
-            </View>
-        );
-    }
+    setContact(contactsCleaned);
+}
 
-    renderItem(item) {
-        return (
-            <TouchableOpacity style={{width: '100%', flexDirection: 'row', alignItems: 'space-between'}}
-                              onPress={() => this.itemSelected(item)}>
-                <Text style={styles.item}>{item.name}</Text>
-                <CheckBox style={{}} onPress={() => this.itemSelected(item)} value={this.isItemSelected(item)}/>
-            </TouchableOpacity>
-        );
-    }
+export default function ContactsList(props) {
 
-    isItemSelected(item) {
-        return item.phoneNumbers ? this.state.selected[item.phoneNumbers[0].number]: false;
-    }
+    const [contacts, setContacts] = useState([]);
+    const [selected, setSelected] = useState({});
 
-    itemSelected(item) {
-        const selected = {...this.state.selected};
+    useEffect(() => loadContacts(setContacts), []);
 
-        const phone = item.phoneNumbers[0].number;
+    const {filter = '', selectedContactChanged = null} = props;
 
-        if (selected[phone]) {
-            selected[phone] = !selected[phone];
-        }
-        else
-            selected[phone] = true;
+    // let filtered = [];
+    // for (let i = 0; i < contacts.length; i++) {
+    //     const contact = contacts[i];
+    //     if (contact.name.match('(' + filter + ')\\w+'))
+    //         filtered.push(contact);
+    // }
 
-        this.setState({
-            ...this.state,
-            selected: selected
-        });
+    return (
+        <View style={styles.container}>
+            <FlatList
+                data={contacts}
+                renderItem={({item}) => renderItem(item, selected, setSelected, selectedContactChanged)}
+            />
+        </View>
+    );
+}
 
-        if (this.props.selectedContactChanged)
-            this.props.selectedContactChanged(selected);
-    }
+
+function renderItem(item, selected, setSelected, selectedContactChanged)
+{
+    return (
+        <TouchableOpacity style={{width: '100%', flexDirection: 'row', alignItems: 'space-between'}}
+                          onPress={() => itemSelected(item, setSelected, selectedContactChanged)}>
+            <Text style={styles.item}>{item.name}</Text>
+            <CheckBox style={{}} onPress={() => itemSelected(item)} value={isItemSelected(item, selected)}/>
+        </TouchableOpacity>
+    );
+}
+
+function isItemSelected(item, selected)
+{
+    console.log(JSON.stringify(selected));
+    return item.phoneNumbers ? selected[item.phoneNumbers[0].number] : false;
+}
+
+function itemSelected(item, setSelected, selectedContactChanged)
+{
+    const selected = {...selected};
+
+    const phone = item.phoneNumbers[0].number;
+
+    if (selected[phone]) {
+        selected[phone] = !selected[phone];
+    } else
+        selected[phone] = true;
+
+    setSelected(selected);
+
+    if (selectedContactChanged)
+        selectedContactChanged(selected);
 }
 
 const styles = StyleSheet.create({

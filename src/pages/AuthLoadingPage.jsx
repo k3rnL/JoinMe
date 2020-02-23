@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import { View } from 'react-native';
 import * as firebase from "firebase";
-import {updateUid} from "../stores/action/profile";
+import {updatePhoneNumber, updatePicture, updateUid} from "../stores/action/profile";
 import {connect, Provider} from "react-redux";
+import {ApiService} from "../services/ApiService";
 
 
 class AuthLoadingPage extends Component {
@@ -17,8 +18,11 @@ class AuthLoadingPage extends Component {
                     this.props.navigation.navigate('Auth');
                 }
                 else {
+                    const user = await ApiService.getUser(authUser.uid);
                     uid = authUser.uid;
                     this.props.dispatch(updateUid(uid));
+                    this.props.dispatch(updatePhoneNumber(user.phone));
+                    this.props.dispatch(updatePicture(user.picture));
                     this.props.navigation.navigate('App');
                 }
             },

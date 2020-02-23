@@ -14,6 +14,8 @@ import AuthLoading from "./pages/AuthLoadingPage";
 import {ApiService} from "./services/ApiService";
 import {updateUid} from "./stores/action/profile";
 import PartyCreationPage from "./pages/PartyCreationPage";
+import ProfilePage from "./pages/ProfilePage";
+import PartyListPage from "./pages/PartyListPage";
 
 firebase.initializeApp(firebaseConfig);
 
@@ -27,6 +29,12 @@ const HomeStack = createStackNavigator({
     },
     PartyCreation: {
         screen: PartyCreationPage,
+    },
+    Profile: {
+        screen: ProfilePage
+    },
+    PartyList: {
+        screen: PartyListPage
     },
     Auth : {
         screen: Auth

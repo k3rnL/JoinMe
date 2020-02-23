@@ -17,6 +17,12 @@ export class ApiService {
         return response;
     }
 
+    static async getUser(uid) {
+        const { response, error } = await Requests.get('/users/' + uid);
+        if (error) throw error;
+        return response;
+    }
+
     static async addUsersByPhoneNumber(phones, partyId) {
         const users = [];
         for (const phone of phones) {
