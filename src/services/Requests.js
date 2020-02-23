@@ -23,7 +23,6 @@ class Request {
     }
 
     async post(url, body = {}) {
-        console.log(JSON.stringify(body)+'NON');
         try {
             const response = await fetch(API_URL + url,
                 {
