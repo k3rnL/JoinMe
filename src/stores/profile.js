@@ -1,7 +1,8 @@
 const initialState = {
     name: '',
     phone: '',
-    uid: ''
+    uid: '',
+    picture: ''
 };
 
 export default (state = initialState, action) => {

@@ -5,7 +5,6 @@ import {ApiService} from "../services/ApiService";
 import Constants from 'expo-constants';
 import * as Permissions from 'expo-permissions';
 import * as ImagePicker from 'expo-image-picker';
-import {set} from "react-native-reanimated";
 
 
 function Profile(props) {
@@ -20,7 +19,7 @@ function Profile(props) {
         <View>
             <ImageBackground source={require('../assets/maxresdefault.jpg')}
                              style={{width: '100%', height: '75%', alignItems: 'center', justifyContent: 'center'}}>
-                <TouchableOpacity onPress={() => pickImage(setPicture)} style={{
+                <TouchableOpacity onPress={() => pickImage(props.uid, setPicture)} style={{
                     width: 140,
                     height: 140,
                     borderRadius: 100,
@@ -46,7 +45,7 @@ async function getPermissionAsync() {
     }
 }
 
-async function pickImage(setPicture) {
+async function pickImage(uid, setPicture) {
     let result = await ImagePicker.launchImageLibraryAsync({
         mediaTypes: ImagePicker.MediaTypeOptions.All,
         allowsEditing: true,
@@ -57,8 +56,9 @@ async function pickImage(setPicture) {
     console.log(result);
 
     if (!result.cancelled) {
-
         setPicture({uri: result.uri});
+
+        await ApiService.updateProfilePicture(uid, result);
     }
 }
 
