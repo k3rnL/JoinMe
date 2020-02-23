@@ -113,4 +113,3 @@ export default connect(state => {
     console.log(state);
     return {uid: state.profile.uid};
 })(Home);
-// export default connect(state => ({ uid: state.uid }))(Home);
