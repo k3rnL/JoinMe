@@ -23,6 +23,7 @@ import {
 import data from '../assets/Countries'
 import Button from "../components/Button";
 import InputBarPhone from "../components/InputBarPhone";
+import InputBar from "../components/InputBar";
 
 // Default render of country flag
 const defaultFlag = data.filter(
@@ -30,7 +31,7 @@ const defaultFlag = data.filter(
 )[0].flag
 
 
-class AuthPage extends Component {
+class Test extends Component {
     state = {
         flag: defaultFlag,
         modalVisible: false,
@@ -60,7 +61,7 @@ class AuthPage extends Component {
             <View style={styles.container}>
                 <Image source={require('../assets/logo.png')}
                        style={{width: 160, height: 130, resizeMode: 'stretch'}}/>
-                <InputBarPhone/>
+                <InputBar placeholder={'Code'}/>
                 <Button title={'OK'}/>
             </View>
         )
@@ -74,7 +75,7 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         backgroundColor: '#ffffff',
-        justifyContent: 'center',
+        justifyContent: 'space-around',
         alignItems: 'center',
         flexDirection: 'column',
         paddingVertical: 80
@@ -131,4 +132,4 @@ const styles = StyleSheet.create({
         position: 'absolute',
     }
 })
-export default AuthPage;
+export default Test;
