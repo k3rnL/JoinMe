@@ -23,19 +23,6 @@ export class ApiService {
         return response;
     }
 
-    static async updateProfilePicture(uid, picture) {
-        const data = new FormData();
-        data.append("photo", {
-            name: picture.fileName,
-            type: picture.type,
-            uri:
-                Platform.OS === "android" ? picture.uri : picture.uri.replace("file://", "")
-        });
-        const { response, error } = await Requests.post('/party/create', data);
-        if (error) throw error;
-        return response;
-    }
-
     static async addUsersByPhoneNumber(phones, partyId) {
         const users = [];
         for (const phone of phones) {

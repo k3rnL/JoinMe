@@ -53,12 +53,8 @@ async function pickImage(uid, setPicture) {
         quality: 1
     });
 
-    console.log(result);
-
     if (!result.cancelled) {
         setPicture({uri: result.uri});
-
-        await ApiService.updateProfilePicture(uid, result);
     }
 }
 
