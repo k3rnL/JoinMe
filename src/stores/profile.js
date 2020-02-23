@@ -21,7 +21,7 @@ export default (state = initialState, action) => {
         case 'UPDATE_PICTURE':
             console.log(action.picture);
             return Object.assign({}, state, {
-                phone: action.picture
+                picture: action.picture
             });
         default:
             return state;
