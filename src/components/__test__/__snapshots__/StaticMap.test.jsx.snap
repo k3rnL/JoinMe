@@ -57,13 +57,10 @@ exports[`StaticMap component has location 1`] = `
         ],
         "endPoint": Array [
           0,
-          0,
+          1,
         ],
         "locations": undefined,
-        "startPoint": Array [
-          0,
-          0.5,
-        ],
+        "startPoint": undefined,
       }
     }
     style={

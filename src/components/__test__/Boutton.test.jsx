@@ -3,8 +3,8 @@ import renderer from 'react-test-renderer';
 
 import Button from '../Button.jsx';
 
-describe('<Button />', () => {
-  it('has 1 child', () => {
+describe('Button component', () => {
+  it('has a title', () => {
     // given
     const button = <Button title="title"/>;
 
