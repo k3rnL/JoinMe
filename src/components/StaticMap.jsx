@@ -21,8 +21,7 @@ export default (props) => {
     return (
         <ImageBackground style={[styles.image, style]} source={{uri: preview}}>
             <LinearGradient
-                start={rgba(1, 1, 1, 0)}
-                end={rgba(1, 1, 1, 1)}
+                end={[0, 1]}
                 colors={['#FFFFFF00', '#FFFFFF00', '#FFFFFF11', '#FFFFFF77', '#FFFFFFFF']}
                 style={{
                     width: '100%',
