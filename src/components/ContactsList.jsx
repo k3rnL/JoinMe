@@ -62,14 +62,13 @@ function renderItem(item, selected, setSelected, selectedContactChanged)
         <TouchableOpacity style={{width: '100%', flexDirection: 'row', alignItems: 'space-between'}}
                           onPress={() => itemSelected(item, setSelected, selectedContactChanged)}>
             <Text style={styles.item}>{item.name}</Text>
-            <CheckBox style={{}} onPress={() => itemSelected(item)} value={isItemSelected(item, selected)}/>
+            <CheckBox style={{}} onPress={() => itemSelected(item, setSelected, selectedContactChanged)} value={isItemSelected(item, selected)}/>
         </TouchableOpacity>
     );
 }
 
 function isItemSelected(item, selected)
 {
-    console.log(JSON.stringify(selected));
     return item.phoneNumbers ? selected[item.phoneNumbers[0].number] : false;
 }
 
