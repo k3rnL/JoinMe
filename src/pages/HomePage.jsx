@@ -27,16 +27,16 @@ function Home(props) {
                 <Image source={require('../assets/pin.png')} style={styles.pin}/>
 
                 <Button onPress={() => {
-                    this.props.dispatch(setPartyLocation('35 avenue garonette toulouse'));
-                    this.props.navigation.navigate('PartyCreation');
+                    props.dispatch(setPartyLocation('35 avenue garonette toulouse'));
+                    props.navigation.navigate('PartyCreation');
                 }} title={'Create a party !  🎉'} style={styles.buttonCreate}/>
 
                 <ProfileButton style={styles.profile} onPress={() => {
-                    this.props.dispatch(setPartyLocation('35 avenue garonette toulouse'));
-                    this.props.navigation.navigate('PartyCreation');
+                    props.dispatch(setPartyLocation('35 avenue garonette toulouse'));
+                    props.navigation.navigate('PartyCreation');
                 }}/>
                 <ListButton style={styles.partyList} onPress={() => {
-                    this.props.navigation.navigate('PartyCreation');
+                    props.navigation.navigate('PartyCreation');
                 }}/>
             </View>
 
