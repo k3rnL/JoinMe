@@ -1,72 +1,39 @@
-import React, {Component} from 'react';
+import React, {useState} from 'react';
 import {
     View,
-    Text,
-    Modal,
-    FlatList,
     StyleSheet,
-    SafeAreaView,
-    Keyboard,
-    KeyboardAvoidingView,
-    TouchableWithoutFeedback,
-    TouchableOpacity,
     Image,
 } from 'react-native'
-// native base imports
-import {
-    Container,
-    Item,
-    Input,
-    Icon
-} from 'native-base'
 
-import data from '../assets/Countries'
 import Button from "../components/Button";
-import InputBarPhone from "../components/InputBarPhone";
 import InputBar from "../components/InputBar";
-
-// Default render of country flag
-const defaultFlag = data.filter(
-    obj => obj.name === 'United Kingdom'
-)[0].flag
+import store from "../stores";
+import {ApiService} from "../services/ApiService";
 
 
-class Test extends Component {
-    state = {
-        flag: defaultFlag,
-        modalVisible: false,
-        phoneNumber: '',
-    }
+function VerificationCode(props) {
 
-    onChangeText(key, value) {
-        this.setState({
-            [key]: value
-        })
-    }
+    const [code, setCode] = useState('');
 
-    showModal() {
-        this.setState({modalVisible: true})
-    }
-
-    hideModal() {
-        this.setState({modalVisible: false})
-        // Refocus on the Input field after selecting the country code
-        this.refs.PhoneInput._root.focus()
-    }
-
-    render() {
-        let {flag} = this.state
-        const countryData = data
-        return (
-            <View style={styles.container}>
-                <Image source={require('../assets/logo.png')}
-                       style={{width: 160, height: 130, resizeMode: 'stretch'}}/>
-                <InputBar placeholder={'Code'}/>
-                <Button title={'OK'}/>
-            </View>
-        )
-    }
+    return (
+        <View style={styles.container}>
+            <Image source={require('../assets/logo.png')}
+                   style={{width: 160, height: 130, resizeMode: 'stretch'}}/>
+            <InputBar value={code} onChangeText={code => setCode(code)} placeholder={'Code'}/>
+            <Button onPress={() => confirmCode(code)} title={'OK'}/>
+        </View>
+    )
 }
+
+function confirmCode(code) {
+    store.getState().profile.confirmation.confirm(code)
+        .then((result) => {
+
+        })
+        .catch((err) => {
+            alert("Oops! something is wrong " + err);
+        });
+};
 
 const styles = StyleSheet.create({
     logo: {
@@ -131,5 +98,6 @@ const styles = StyleSheet.create({
         bottom: '1%',
         position: 'absolute',
     }
-})
-export default Test;
+});
+
+export default VerificationCode;

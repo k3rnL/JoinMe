@@ -18,11 +18,12 @@ class AuthLoadingPage extends Component {
                     this.props.navigation.navigate('Auth');
                 }
                 else {
+                    await ApiService.registerUser(authUser.uid, '');
                     const user = await ApiService.getUser(authUser.uid);
                     uid = authUser.uid;
                     this.props.dispatch(updateUid(uid));
                     this.props.dispatch(updatePhoneNumber(user.phone));
-                    this.props.dispatch(updatePicture(user.picture));
+                    // this.props.dispatch(updatePicture(user.picture));
                     this.props.navigation.navigate('App');
                 }
             },

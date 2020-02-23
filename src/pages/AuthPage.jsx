@@ -1,70 +1,86 @@
-import React, {Component} from 'react';
+import React, {Component, useState} from 'react';
 import {
     View,
-    Text,
-    Modal,
-    FlatList,
     StyleSheet,
-    SafeAreaView,
-    Keyboard,
-    KeyboardAvoidingView,
-    TouchableWithoutFeedback,
-    TouchableOpacity,
-    Image,
+    Image, Modal,
 } from 'react-native'
-// native base imports
-import {
-    Container,
-    Item,
-    Input,
-    Icon
-} from 'native-base'
+import {updatePhoneNumber, updatePicture, updateUid} from "../stores/action/profile";
 
-import data from '../assets/Countries'
+
 import Button from "../components/Button";
 import InputBarPhone from "../components/InputBarPhone";
+import {connect} from "react-redux";
+import {WebView} from "react-native-webview";
+import url from "url";
+import * as firebase from "firebase";
+import store from "../stores";
 
-// Default render of country flag
-const defaultFlag = data.filter(
-    obj => obj.name === 'United Kingdom'
-)[0].flag
+const captchaUrl = 'https://joinme-2aa7a.firebaseapp.com/captcha.html'; // link to your captcha.html
 
+function Auth(props) {
 
-class AuthPage extends Component {
-    state = {
-        flag: defaultFlag,
-        modalVisible: false,
-        phoneNumber: '',
+    const [ phoneNumber, setPhoneNumber ] = useState('');
+    const [ showModal, setShowModal ] = useState(false);
+
+    return (
+        <View style={styles.container}>
+            <Image source={require('../assets/logo.png')}
+                   style={{width: 160, height: 130, resizeMode: 'stretch'}}/>
+            <InputBarPhone phoneNumber={phoneNumber} setPhoneNumber={setPhoneNumber}/>
+            <Button title={'OK'} onPress={() => {
+                setShowModal(true);
+            }}/>
+
+            {renderCaptchScreen(showModal, props, phoneNumber, setShowModal)}
+        </View>
+    )
+}
+
+function renderCaptchScreen(showModal, props, phone, setShowModal) {
+    return (
+        <View style={{ marginTop: 100 }}>
+            <Modal
+                visible={showModal}
+                onRequestClose={() => setShowModal(false)}
+            >
+                <WebView
+                    source={{ uri: captchaUrl }}
+                    onNavigationStateChange={data =>
+                        handleResponse(data, props, phone, setShowModal)
+                    }
+                    injectedJavaScript={`document.f1.submit()`}
+                />
+            </Modal>
+        </View>
+    )
+}
+
+function handleResponse(data, props, phone, setShowModal) {
+    let query = url.parse(data.url, true).query;
+
+    if (query.hasOwnProperty('token')) {
+        sendConfirmationCode(query.token, props, phone, setShowModal);
+    } else if (query.hasOwnProperty('cancel')) {
+        setShowModal(false);
     }
+}
 
-    onChangeText(key, value) {
-        this.setState({
-            [key]: value
+function sendConfirmationCode(captchaToken, props, phone, setShowModal) {
+    setShowModal(false);
+    let number = `+${phone}`;
+    const captchaVerifier = {
+        type: 'recaptcha',
+        verify: () => Promise.resolve(captchaToken)
+    };
+    firebase.auth().signInWithPhoneNumber(number, captchaVerifier)
+        .then((confirmation) => {
+            store.getState().profile.confirmation = confirmation;
+            props.dispatch(updatePhoneNumber(phone));
+            props.navigation.navigate('VerificationCode');
         })
-    }
-
-    showModal() {
-        this.setState({modalVisible: true})
-    }
-
-    hideModal() {
-        this.setState({modalVisible: false})
-        // Refocus on the Input field after selecting the country code
-        this.refs.PhoneInput._root.focus()
-    }
-
-    render() {
-        let {flag} = this.state
-        const countryData = data
-        return (
-            <View style={styles.container}>
-                <Image source={require('../assets/logo.png')}
-                       style={{width: 160, height: 130, resizeMode: 'stretch'}}/>
-                <InputBarPhone/>
-                <Button title={'OK'}/>
-            </View>
-        )
-    }
+        .catch((err) => {
+            alert('Incorrect input !');
+        });
 }
 
 const styles = StyleSheet.create({
@@ -130,5 +146,8 @@ const styles = StyleSheet.create({
         bottom: '1%',
         position: 'absolute',
     }
-})
-export default AuthPage;
+});
+
+export default connect(state => {
+    return {uid: state.profile.uid};
+})(Auth);

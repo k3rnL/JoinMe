@@ -2,7 +2,8 @@ const initialState = {
     name: '',
     phone: '',
     uid: '',
-    picture: ''
+    picture: '',
+    confirmation: {}
 };
 
 export default (state = initialState, action) => {

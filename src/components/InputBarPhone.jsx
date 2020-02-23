@@ -16,15 +16,18 @@ import React from "react";
 import data from '../assets/Countries'
 
 const defaultFlag = data.filter(
-    obj => obj.name === 'United Kingdom'
+    obj => obj.name === 'France'
 )[0].flag;
 
 export default function InputBarPhone(props) {
 
     const [ flag, setFlag ] = useState(defaultFlag);
     const [ modalVisible, setModalVisible ] = useState(false);
-    const [ phoneNumber, setPhoneNumber ] = useState('');
-    const defaultCode = '+44';
+    const [ _phoneNumber, _setPhoneNumber ] = useState('');
+
+    const { phoneNumber = _phoneNumber, setPhoneNumber = _setPhoneNumber} = props;
+
+    const defaultCode = '+33';
 
     return (
                 <View style={styles.container}>
@@ -44,7 +47,7 @@ export default function InputBarPhone(props) {
                             </TouchableOpacity>
                             <Input
                                 style={styles.input}
-                                placeholder='+44'
+                                placeholder='+33'
                                 placeholderTextColor='black'
                                 keyboardType={'phone-pad'}
                                 returnKeyType='done'
