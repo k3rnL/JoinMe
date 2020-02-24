@@ -1,6 +1,5 @@
 import React, {useState, useEffect} from 'react';
 import {Text, View, StyleSheet, FlatList, CheckBox, TouchableOpacity} from 'react-native';
-import * as Constants from "expo-constants";
 import * as Contacts from 'expo-contacts';
 
 
@@ -14,16 +13,15 @@ async function loadContacts(setContact) {
     const contacts = await Contacts.getContactsAsync({
         fields: [
             Contacts.PHONE_NUMBERS,
-            Contacts.EMAILS,
         ],
         pageSize: 10000,
         pageOffset: 0,
     });
 
     const contactsCleaned = contacts.data.filter((contact, index) => {
-        return contacts.data.findIndex((obj) => {
+        return index === contacts.data.findIndex((obj) => {
             return obj.id === contact.id;
-        })
+        }) && contact.phoneNumbers;
     });
 
     setContact(contactsCleaned);
@@ -34,7 +32,12 @@ export default function ContactsList(props) {
     const [contacts, setContacts] = useState([]);
     const [selected, setSelected] = useState({});
 
-    useEffect(() => loadContacts(setContacts), []);
+    useEffect(() => {
+        async function load() {
+            await loadContacts(setContacts);
+        }
+        load();
+    }, []);
 
     const {filter = '', selectedContactChanged = null} = props;
 
@@ -47,6 +50,7 @@ export default function ContactsList(props) {
 
     return (
         <View style={styles.container}>
+            <Text>{0} contacts selected.</Text>
             <FlatList
                 data={contacts}
                 renderItem={({item}) => renderItem(item, selected, setSelected, selectedContactChanged)}
@@ -57,36 +61,32 @@ export default function ContactsList(props) {
 
 
 function renderItem(item, selected, setSelected, selectedContactChanged)
-{
+{    
     return (
-        <TouchableOpacity style={{width: '100%', flexDirection: 'row', alignItems: 'space-between'}}
-                          onPress={() => itemSelected(item, setSelected, selectedContactChanged)}>
+        <TouchableOpacity style={styles.item}
+                          onPress={() => itemSelected(item, selected, setSelected, selectedContactChanged)}>
+            <Text style={[styles.item, styles.selection, selected[item.id] ? styles.itemSelected : styles.itemUnselected]}> </Text>
             <Text style={styles.item}>{item.name}</Text>
-            <CheckBox style={{}} onPress={() => itemSelected(item, setSelected, selectedContactChanged)} value={isItemSelected(item, selected)}/>
         </TouchableOpacity>
     );
 }
 
-function isItemSelected(item, selected)
+function itemSelected(item, selected, setSelected, selectedContactChanged)
 {
-    return item.phoneNumbers ? selected[item.phoneNumbers[0].number] : false;
-}
+    const currentlySelected = {...selected};
 
-function itemSelected(item, setSelected, selectedContactChanged)
-{
-    const selected = {...selected};
+    const id = item.id;
 
-    const phone = item.phoneNumbers[0].number;
+    if (currentlySelected[id]) {
+        currentlySelected[id] = !currentlySelected[id];
+    } else {
+        currentlySelected[id] = true;
+    }
 
-    if (selected[phone]) {
-        selected[phone] = !selected[phone];
-    } else
-        selected[phone] = true;
-
-    setSelected(selected);
+    setSelected(currentlySelected);
 
     if (selectedContactChanged)
-        selectedContactChanged(selected);
+        selectedContactChanged(currentlySelected);
 }
 
 const styles = StyleSheet.create({
@@ -94,8 +94,7 @@ const styles = StyleSheet.create({
         flex: 1,
         alignItems: 'center',
         justifyContent: 'center',
-        paddingTop: Constants.default.statusBarHeight,
-        backgroundColor: '#ecf0f1',
+        paddingTop: 10,
     },
     paragraph: {
         margin: 24,
@@ -105,10 +104,24 @@ const styles = StyleSheet.create({
         color: '#34495e',
     },
     item: {
-        // flex: 1,
-        // left: 0,
-        // padding: 10,
         fontSize: 18,
-        // height: 44,
+        flexDirection: 'row',
+        alignItems: 'center',
+        paddingTop: 5,
+        paddingBottom: 5,
     },
+    itemSelected: {
+        backgroundColor: '#2F74C5'
+    },
+    itemUnselected: {
+        backgroundColor: 'white'
+    },
+    selection: {
+        height: 18,
+        width: 18,
+        margin: 5,
+        borderRadius: 18/2,
+        backgroundColor: '#2F74C5',
+        borderWidth: 1
+    }
 });
