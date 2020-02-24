@@ -7,7 +7,7 @@
     "web": "expo start --web",
     "eject": "expo eject",
     "test": "jest",
-    "lint": "eslint ./src/**/* --ext jsx"
+    "lint": "eslint ./src --ext jsx"
   },
   "jest": {
     "preset": "jest-expo",
