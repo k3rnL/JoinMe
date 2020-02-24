@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
-import {View, StyleSheet, Text, Button} from 'react-native';
+import {View, StyleSheet, Text} from 'react-native';
+import Button from '../components/Button';
 import {connect} from "react-redux";
 import InputBar from "../components/InputBar";
 import StaticMap from "../components/StaticMap";

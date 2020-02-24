@@ -6,14 +6,10 @@ import {
 export default function InputBar(props) {
   const { placeholder = 'placeholder', style = {}, textStyle = {}, ...otherProps } = props;
 
-  // const [value, onChangeText] = React.useState("");
-
   return (
     <View style={styles.container}>
         <TextInput
           style={styles.input}
-          // onChangeText={(text) => onChangeText(text)}
-          // value={value}
           placeholder={placeholder}
           {...otherProps}
         />
@@ -30,7 +26,7 @@ const styles = StyleSheet.create({
     borderRadius: 25,
     justifyContent: 'center',
     alignItems: 'center',
-
+    margin: 10,
     backgroundColor: 'white',
 
     shadowColor: "#000",
