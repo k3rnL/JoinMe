@@ -7,15 +7,14 @@ import Auth from './pages/AuthPage'
 import ContactSelection from "./pages/ContactSelectionPage";
 import firebaseConfig from "../config/firebase";
 import * as firebase from "firebase";
-import {connect, Provider} from "react-redux";
+import {Provider} from "react-redux";
 import React from "react";
 import store from './stores/index'
 import AuthLoading from "./pages/AuthLoadingPage";
-import {ApiService} from "./services/ApiService";
-import {updateUid} from "./stores/action/profile";
 import PartyCreationPage from "./pages/PartyCreationPage";
 import ProfilePage from "./pages/ProfilePage";
 import PartyListPage from "./pages/PartyListPage";
+import VerificationCodePage from "./pages/VerificationCodePage";
 
 firebase.initializeApp(firebaseConfig);
 
@@ -36,9 +35,7 @@ const HomeStack = createStackNavigator({
     PartyList: {
         screen: PartyListPage
     },
-    Auth : {
-        screen: Auth
-    }
+
 }, {
     initialRouteName: 'Home'
 });
@@ -48,6 +45,9 @@ const AuthStack = createSwitchNavigator(
         AuthLoading: AuthLoading,
         App: HomeStack,
         Auth: Auth,
+        VerificationCode: {
+            screen: VerificationCodePage
+        }
     },
     {
         initialRouteName: 'AuthLoading',

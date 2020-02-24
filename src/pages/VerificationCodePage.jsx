@@ -8,10 +8,9 @@ import {
 import Button from "../components/Button";
 import InputBar from "../components/InputBar";
 import store from "../stores";
-import {ApiService} from "../services/ApiService";
 
 
-function VerificationCode(props) {
+export default function VerificationCode(props) {
 
     const [code, setCode] = useState('');
 
@@ -20,15 +19,15 @@ function VerificationCode(props) {
             <Image source={require('../assets/logo.png')}
                    style={{width: 160, height: 130, resizeMode: 'stretch'}}/>
             <InputBar value={code} onChangeText={code => setCode(code)} placeholder={'Code'}/>
-            <Button onPress={() => confirmCode(code)} title={'OK'}/>
+            <Button onPress={() => confirmCode(code, props)} title={'OK'}/>
         </View>
     )
 }
 
-function confirmCode(code) {
+function confirmCode(code, props) {
     store.getState().profile.confirmation.confirm(code)
         .then((result) => {
-
+            props.navigation.navigate('App');
         })
         .catch((err) => {
             alert("Oops! something is wrong " + err);
@@ -99,5 +98,3 @@ const styles = StyleSheet.create({
         position: 'absolute',
     }
 });
-
-export default VerificationCode;
