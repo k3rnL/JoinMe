@@ -1,0 +1,74 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`StaticMap component has location 1`] = `
+<View
+  accessibilityIgnoresInvertColors={true}
+  style={
+    Array [
+      Object {
+        "bottom": 0,
+        "height": 400,
+        "left": 0,
+        "right": 0,
+        "top": 0,
+      },
+      Object {
+        "bottom": 0,
+        "height": 400,
+        "left": 0,
+        "right": 0,
+        "top": 0,
+      },
+    ]
+  }
+>
+  <Image
+    source={
+      Object {
+        "uri": "https://maps.googleapis.com/maps/api/staticmap?center=Epitech%20Paris&zoom=13&size=1800x1800&maptype=roadmap&markers=color:blue%7CEpitech%20Paris&key=AIzaSyAfv8IPCxhiURtrI8tDyQptGEVQoOl0G3c",
+      }
+    }
+    style={
+      Array [
+        Object {
+          "bottom": 0,
+          "left": 0,
+          "position": "absolute",
+          "right": 0,
+          "top": 0,
+        },
+        Object {
+          "height": undefined,
+          "width": undefined,
+        },
+        undefined,
+      ]
+    }
+  />
+  <ViewManagerAdapter_ExpoLinearGradient
+    proxiedProperties={
+      Object {
+        "colors": Array [
+          16777215,
+          16777215,
+          301989887,
+          2013265919,
+          4294967295,
+        ],
+        "endPoint": Array [
+          0,
+          1,
+        ],
+        "locations": undefined,
+        "startPoint": undefined,
+      }
+    }
+    style={
+      Object {
+        "height": "100%",
+        "width": "100%",
+      }
+    }
+  />
+</View>
+`;
