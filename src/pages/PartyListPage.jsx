@@ -4,6 +4,7 @@ import {
 } from 'react-native';
 import React, { useEffect, useState } from 'react';
 import { ApiService } from '../services/ApiService';
+import {setParty} from "../stores/action/party";
 
 const styles = StyleSheet.create({
   container: {
@@ -19,7 +20,8 @@ const styles = StyleSheet.create({
   },
 });
 
-function goToParty(props) {
+function goToParty(props, party) {
+  props.dispatch(setParty(party));
   props.navigation.navigate('Party');
 }
 
