@@ -3,7 +3,8 @@ import {
   Text, View, StyleSheet, TouchableOpacity,
 } from 'react-native';
 
-import {Strokes, Shadows} from '../constants';
+import PropTypes from 'prop-types';
+import { Strokes, Shadows } from '../constants';
 
 const styles = StyleSheet.create({
   button: {
@@ -23,15 +24,21 @@ const styles = StyleSheet.create({
 });
 
 export default function Button(props) {
-
-  const {style = {}, textStyle = {}, onPress} = props;
+  const { title, style = {}, textStyle = {}, onPress } = props;
 
   return (
     <View style={[styles.button, style]}>
       <TouchableOpacity onPress={onPress}>
-        <Text style={[styles.text, textStyle]}>{props.title}</Text>
+        <Text style={[styles.text, textStyle]}>{title}</Text>
       </TouchableOpacity>
     </View>
   );
 }
 
+Button.propTypes = {
+  title: PropTypes.string,
+};
+
+Button.defaultProps = {
+  title: '',
+};
