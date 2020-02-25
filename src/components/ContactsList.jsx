@@ -65,7 +65,7 @@ async function loadContacts(setContact) {
   setContact(contactsCleaned);
 }
 
-function itemSelected(item, selected, setSelected, selectedContactChanged) {
+async function itemSelected(item, selected, setSelected, selectedContactChanged) {
   const currentlySelected = { ...selected };
 
   const { id } = item;
@@ -79,7 +79,9 @@ function itemSelected(item, selected, setSelected, selectedContactChanged) {
   setSelected(currentlySelected);
 
   if (selectedContactChanged) {
-    selectedContactChanged(currentlySelected);
+    const ids = Object.keys(currentlySelected);
+    const list = await Promise.all(ids.map((idKey) => Contacts.getContactByIdAsync(idKey)));
+    selectedContactChanged(list);
   }
 }
 
