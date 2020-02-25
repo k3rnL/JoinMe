@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import {
-  View, StyleSheet, FlatList, Text,
+  View, StyleSheet, FlatList,
 } from 'react-native';
 import { connect } from 'react-redux';
 import { Linking } from 'expo';
 import PropTypes from 'prop-types';
+import { ListItem } from 'react-native-elements';
 import StaticMap from '../components/StaticMap';
 import Button from '../components/Button';
 import { ApiService } from '../services/ApiService';
-import {ListItem} from "react-native-elements";
 
 const styles = StyleSheet.create({
   header: {
@@ -22,6 +22,8 @@ const styles = StyleSheet.create({
     paddingTop: 200,
     flex: 1,
     backgroundColor: '#fff',
+  },
+  buttonStyle: {
     alignItems: 'center',
     justifyContent: 'center',
   },
@@ -34,6 +36,17 @@ function generateGoogleMapsUrl(party) {
 async function loadMembers(party, setMembers) {
   const members = await Promise.all(party.members.map((member) => ApiService.getUser(member.uid)));
   setMembers(members);
+}
+
+function itemView(item) {
+  return (
+    <ListItem
+      title={item.phone}
+      subtitle={item.phone}
+      leftAvatar={{ source: { uri: item.picture } }}
+      bottomDivider
+    />
+  );
 }
 
 function PartyPage(props) {
@@ -49,11 +62,13 @@ function PartyPage(props) {
   return (
     <View style={styles.container}>
       <StaticMap style={styles.header} location={party.address} />
-      <Button title="Go to this party !" onPress={() => Linking.openURL(googleMapUrl)} />
+      <View style={styles.buttonStyle}>
+        <Button title="Go to this party !" onPress={() => Linking.openURL(googleMapUrl)} />
+      </View>
       <FlatList
         keyExtractor={((item) => (item.phone))}
         data={members}
-        renderItem={({ item }) => (<ListItem title={item.phone} />)}
+        renderItem={({ item }) => itemView(item)}
       />
     </View>
   );

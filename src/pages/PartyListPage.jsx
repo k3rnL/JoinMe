@@ -3,8 +3,9 @@ import {
   Text, View, TouchableOpacity, FlatList, StyleSheet,
 } from 'react-native';
 import React, { useEffect, useState } from 'react';
+import PropTypes from 'prop-types';
 import { ApiService } from '../services/ApiService';
-import {setParty} from "../stores/action/party";
+import { setParty } from '../stores/action/party';
 
 const styles = StyleSheet.create({
   container: {
@@ -25,28 +26,28 @@ function goToParty(props, party) {
   props.navigation.navigate('Party');
 }
 
-async function getParties(props, setParties) {
-  const { parties } = await ApiService.getUserParties(props.uid);
+async function getParties(uid, setParties) {
+  const { parties } = await ApiService.getUserParties(uid);
   setParties(parties);
 }
 
 function PartyList(props) {
   const [parties, setParties] = useState([]);
 
+  const { uid } = props;
+
   useEffect(() => {
-    getParties(props, setParties);
+    getParties(uid, setParties);
   }, []);
 
   return (
     <View style={styles.container}>
       <FlatList
+        keyExtractor={((item) => `${item.id}`)}
         data={parties}
         renderItem={({ item }) => (
-          <TouchableOpacity onPress={() => {
-            goToParty(props, item);
-          }}
-          >
-            <Text style={styles.item}>{item.name}</Text>
+          <TouchableOpacity onPress={() => goToParty(props, item)}>
+            <Text style={styles.item}>{`${item.name}`}</Text>
           </TouchableOpacity>
         )}
       />
@@ -55,3 +56,11 @@ function PartyList(props) {
 }
 
 export default connect((state) => ({ uid: state.profile.uid }))(PartyList);
+
+PartyList.propTypes = {
+  uid: PropTypes.string,
+};
+
+PartyList.defaultProps = {
+  uid: '',
+};
