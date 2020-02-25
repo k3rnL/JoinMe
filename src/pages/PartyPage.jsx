@@ -5,10 +5,10 @@ import {
 import { connect } from 'react-redux';
 import { Linking } from 'expo';
 import PropTypes from 'prop-types';
+import { ListItem } from 'react-native-elements';
 import StaticMap from '../components/StaticMap';
 import Button from '../components/Button';
 import { ApiService } from '../services/ApiService';
-import {ListItem} from "react-native-elements";
 
 const styles = StyleSheet.create({
   header: {
@@ -22,6 +22,8 @@ const styles = StyleSheet.create({
     paddingTop: 200,
     flex: 1,
     backgroundColor: '#fff',
+  },
+  buttonStyle: {
     alignItems: 'center',
     justifyContent: 'center',
   },
@@ -36,6 +38,14 @@ async function loadMembers(party, setMembers) {
   setMembers(members);
 }
 
+const itemView = (item) => (
+  <ListItem
+    title={item.phone}
+    subtitle={item.phone}
+    bottomDivider
+  />
+);
+
 function PartyPage(props) {
   const { party } = props;
 
@@ -49,11 +59,13 @@ function PartyPage(props) {
   return (
     <View style={styles.container}>
       <StaticMap style={styles.header} location={party.address} />
-      <Button title="Go to this party !" onPress={() => Linking.openURL(googleMapUrl)} />
+      <View style={styles.buttonStyle}>
+        <Button title="Go to this party !" onPress={() => Linking.openURL(googleMapUrl)} />
+      </View>
       <FlatList
         keyExtractor={((item) => (item.phone))}
         data={members}
-        renderItem={({ item }) => (<ListItem title={item.phone} />)}
+        renderItem={({ item }) => itemView(item)}
       />
     </View>
   );
