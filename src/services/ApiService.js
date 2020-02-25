@@ -1,7 +1,6 @@
 import Requests from './Requests';
-import {add} from "react-native-reanimated";
 
-export default class ApiService {
+export class ApiService {
   static async createParty(name, address) {
     const { response, error } = await Requests.post('/party/create', {
       name,
