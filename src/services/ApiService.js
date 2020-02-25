@@ -44,7 +44,7 @@ export class ApiService {
             };
             users.push(user);
         }
-        const { response, error } = await Requests.patch('/party/' + partyId, {users});
+        const { response, error } = await Requests.patch('/party/' + partyId, users);
         if (error) throw error;
         return response;
     }

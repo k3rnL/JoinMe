@@ -50,7 +50,8 @@ class PartyCreation extends Component {
 
     async createParty() {
         let id = await ApiService.createParty(this.props.partyName, this.props.partyLocation);
-        await ApiService.addUsersByUid(this.props.uid, id);
+        console.log(JSON.stringify(this.props.uid));
+        await ApiService.addUsersByUid([this.props.uid], id.id);
     }
 
     contactFilterChanged(value) {

@@ -15,6 +15,7 @@ import PartyCreationPage from "./pages/PartyCreationPage";
 import ProfilePage from "./pages/ProfilePage";
 import PartyListPage from "./pages/PartyListPage";
 import VerificationCodePage from "./pages/VerificationCodePage";
+import PartyPage from "./pages/PartyPage";
 
 firebase.initializeApp(firebaseConfig);
 
@@ -35,6 +36,9 @@ const HomeStack = createStackNavigator({
     PartyList: {
         screen: PartyListPage
     },
+    Party: {
+        screen: PartyPage
+    }
 
 }, {
     initialRouteName: 'Home'
