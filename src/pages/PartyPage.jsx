@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import {
-  View, StyleSheet, FlatList, Text,
+  View, StyleSheet, FlatList,
 } from 'react-native';
 import { connect } from 'react-redux';
 import { Linking } from 'expo';
@@ -38,13 +38,16 @@ async function loadMembers(party, setMembers) {
   setMembers(members);
 }
 
-const itemView = (item) => (
-  <ListItem
-    title={item.phone}
-    subtitle={item.phone}
-    bottomDivider
-  />
-);
+function itemView(item) {
+  return (
+    <ListItem
+      title={item.phone}
+      subtitle={item.phone}
+      leftAvatar={{ source: { uri: item.picture } }}
+      bottomDivider
+    />
+  );
+}
 
 function PartyPage(props) {
   const { party } = props;
