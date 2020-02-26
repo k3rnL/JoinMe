@@ -1,6 +1,7 @@
 import { createStackNavigator } from 'react-navigation-stack';
 import { createSwitchNavigator, createAppContainer } from 'react-navigation';
 import { registerRootComponent } from 'expo';
+
 import * as firebase from 'firebase';
 import { Provider } from 'react-redux';
 import React from 'react';
@@ -14,6 +15,7 @@ import PartyCreationPage from './pages/PartyCreationPage';
 import ProfilePage from './pages/ProfilePage';
 import PartyListPage from './pages/PartyListPage';
 import VerificationCodePage from './pages/VerificationCodePage';
+import PartyPage from './pages/PartyPage';
 
 firebase.initializeApp(firebaseConfig);
 
@@ -35,11 +37,13 @@ const HomeStack = createStackNavigator(
     PartyList: {
       screen: PartyListPage,
     },
-  },
-  {
-    initialRouteName: 'Home',
-  },
-);
+    Party: {
+        screen: PartyPage
+    }
+
+}, {
+    initialRouteName: 'Home'
+});
 
 const AuthStack = createSwitchNavigator(
   {

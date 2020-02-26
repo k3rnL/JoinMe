@@ -1,13 +1,5 @@
 import Requests from './Requests';
 
-/*
-// Party {
-//     name STRING
-//     id NUMBER
-//     address STRING
-//     members STRING
-// }
-*/
 export class ApiService {
   static async createParty(name, address) {
     const { response, error } = await Requests.post('/party/create', {
@@ -37,21 +29,17 @@ export class ApiService {
   }
 
   static async addUsersByPhoneNumber(phones, partyId) {
-    const users = phones.maps((phone) => ({ phone }));
+    const users = phones.map((phone) => ({ phone }));
 
-    const { response, error } = await Requests.patch(`/party/${partyId}`, {
-      users,
-    });
+    const { response, error } = await Requests.patch(`/party/${partyId}`, users);
     if (error) throw error;
     return response;
   }
 
   static async addUsersByUid(uids, partyId) {
-    const users = uids.maps((uid) => ({ uid }));
+    const users = uids.map((uid) => ({ uid }));
 
-    const { response, error } = await Requests.patch(`/party/${partyId}`, {
-      users,
-    });
+    const { response, error } = await Requests.patch(`/party/${partyId}`, users);
     if (error) throw error;
     return response;
   }
@@ -63,7 +51,7 @@ export class ApiService {
   }
 
   static async registerUser(uid, fcmToken) {
-    console.log('registerUser == ')
+    console.log('registerUser == ');
     const { error } = await Requests.post('/users/register', {
       uid,
       fcm_token: fcmToken,

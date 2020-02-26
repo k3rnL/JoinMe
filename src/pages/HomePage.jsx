@@ -1,8 +1,9 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { View, StyleSheet, Image } from 'react-native';
 import { connect } from 'react-redux';
 import * as Permissions from 'expo-permissions';
 import { Notifications } from 'expo';
+import * as Location from 'expo-location';
 import Map from '../components/Map';
 import Button from '../components/Button';
 import { setPartyLocation } from '../stores/action/partyCreation';
@@ -49,7 +50,7 @@ const styles = StyleSheet.create({
   },
   content: {
     flex: 3,
-    backgroundColor: 'yellow',
+    backgroundColor: 'white',
     alignItems: 'center',
     justifyContent: 'center',
   },
@@ -79,8 +80,9 @@ const styles = StyleSheet.create({
 
 const pin = require('../assets/pin.png');
 
-function createParty(props) {
-  props.dispatch(setPartyLocation('35 avenue garonette toulouse'));
+function createParty(props, location) {
+  console.log(JSON.stringify(location));
+  props.dispatch(setPartyLocation(location));
   props.navigation.navigate('PartyCreation');
 }
 
@@ -92,9 +94,32 @@ function goToPartyList(props) {
   props.navigation.navigate('PartyList');
 }
 
+async function getLocationAsync(setLocation) {
+  const { status } = await Permissions.askAsync(Permissions.LOCATION);
+  if (status !== 'granted') {
+    alert('Permission to access location was denied');
+    return;
+  }
+  const location = await Location.getCurrentPositionAsync({});
+  setLocation({
+    latitude: location.coords.latitude,
+    longitude: location.coords.longitude,
+    latitudeDelta: 0.01,
+    longitudeDelta: 0.01,
+  });
+}
+
 function Home(props) {
+  const [location, setLocation] = useState({
+    latitude: 0,
+    longitude: 0,
+    latitudeDelta: 0.01,
+    longitudeDelta: 0.01,
+  });
+
   useEffect(() => {
     handleNotification();
+    getLocationAsync(setLocation);
   }, []);
 
   return (
@@ -103,7 +128,7 @@ function Home(props) {
         <Image source={pin} style={styles.pin} />
 
         <Button
-          onPress={() => { createParty(props); }}
+          onPress={() => { createParty(props, location); }}
           title="Create a party !  🎉"
           style={styles.buttonCreate}
         />
@@ -119,11 +144,15 @@ function Home(props) {
       </View>
 
       <View style={styles.content}>
-        <Map />
+        {location.latitude === 0 ? <View /> : (
+          <Map
+            location={location}
+            onRegionChange={(region) => setLocation(region)}
+          />
+        )}
       </View>
     </View>
   );
 }
-
 
 export default connect((state) => ({ uid: state.profile.uid }))(Home);
