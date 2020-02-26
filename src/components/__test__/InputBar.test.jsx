@@ -3,10 +3,10 @@ import renderer from 'react-test-renderer';
 
 import InputBar from '../InputBar';
 
-describe('input bar components', () => {
-  it('has placeholder', () => {
+describe('Input bar component', () => {
+  it('with default parameters', () => {
     // given
-    const inputBar = <InputBar placeholder="title" />;
+    const inputBar = <InputBar onChangeText={() => {}} value="value" />;
 
     // when
     const tree = renderer.create(inputBar).toJSON();

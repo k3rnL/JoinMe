@@ -1,15 +1,15 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
 
-import ContactList from '../ContactsList';
+import ListButton from '../ListButton';
 
-describe('ContactList component', () => {
+describe('List button component', () => {
   it('with default parameters', () => {
     // given
-    const contactList = <ContactList />;
+    const listButton = <ListButton />;
 
     // when
-    const tree = renderer.create(contactList).toJSON();
+    const tree = renderer.create(listButton).toJSON();
 
     // then
     expect(tree).toMatchSnapshot();

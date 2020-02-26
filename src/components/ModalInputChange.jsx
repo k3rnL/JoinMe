@@ -55,6 +55,7 @@ export default function ListItemModification(props) {
             <View>
               <Text>{fieldName}</Text>
               <InputBar
+                value=""
                 onChangeText={(value) => setText(value)}
                 placeholder={fieldName}
                 defaultValue={fieldValue}

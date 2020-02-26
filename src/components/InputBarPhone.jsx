@@ -5,6 +5,7 @@ import {
   TouchableOpacity,
   TouchableWithoutFeedback,
   View,
+  Alert,
 } from 'react-native';
 import React, { useState } from 'react';
 import {
@@ -94,7 +95,7 @@ async function getCountry(country, setModalVisible, setPhoneNumber, setFlag) {
     setPhoneNumber(countryCode);
     setModalVisible(false);
   } catch (err) {
-    console.log(err);
+    Alert.alert(err);
   }
 }
 

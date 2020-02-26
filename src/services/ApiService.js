@@ -50,6 +50,12 @@ export default class ApiService {
     return response;
   }
 
+  static async getParty(id) {
+    const { response, error } = await Requests.get(`/party/${id}`);
+    if (error) throw error;
+    return response;
+  }
+
   static async registerUser(uid, fcmToken) {
     const { error } = await Requests.post('/users/register', {
       uid,

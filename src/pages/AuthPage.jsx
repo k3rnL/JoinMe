@@ -2,7 +2,9 @@ import React, { useState } from 'react';
 import {
   View,
   StyleSheet,
-  Image, Modal,
+  Image,
+  Modal,
+  Alert,
 } from 'react-native';
 
 
@@ -96,7 +98,7 @@ function sendConfirmationCode(captchaToken, props, phone, setShowModal) {
       props.navigation.navigate('VerificationCode');
     })
     .catch(() => {
-      alert('Incorrect input !');
+      Alert.alert('Incorrect input !');
     });
 }
 

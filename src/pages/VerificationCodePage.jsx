@@ -3,6 +3,7 @@ import {
   View,
   StyleSheet,
   Image,
+  Alert,
 } from 'react-native';
 
 import Button from '../components/Button';
@@ -80,7 +81,7 @@ function confirmCode(code, props) {
       props.navigation.navigate('App');
     })
     .catch((err) => {
-      alert(`Oops! something is wrong ${err}`);
+      Alert.alert(`Oops! something is wrong ${err}`);
     });
 }
 

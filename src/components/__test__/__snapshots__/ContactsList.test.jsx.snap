@@ -1,14 +1,13 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`ContactList component has correct behaviour with filter parameter 1`] = `
+exports[`ContactList component with default parameters 1`] = `
 <View
   style={
     Object {
       "alignItems": "center",
-      "backgroundColor": "#ecf0f1",
       "flex": 1,
       "justifyContent": "center",
-      "paddingTop": 44,
+      "paddingTop": 10,
     }
   }
 >

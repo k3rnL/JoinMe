@@ -8,6 +8,8 @@ import StaticMap from '../components/StaticMap';
 import ContactsList from '../components/ContactsList';
 import { setPartyName } from '../stores/action/partyCreation';
 import ApiService from '../services/ApiService';
+import ErrorMessage from '../components/Error';
+import { setParty } from '../stores/action/party';
 
 const styles = StyleSheet.create({
   container: {
@@ -24,8 +26,10 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   content: {
+    height: '100%',
     position: 'absolute',
     top: 200,
+    paddingBottom: 200,
     width: '100%',
     alignItems: 'center',
     justifyContent: 'center',
@@ -42,15 +46,20 @@ function generateStringLocation(partyLocation) {
   return `${partyLocation.latitude},${partyLocation.longitude}`;
 }
 
-async function createParty(uid, partyName, partyLocation, selectedContacts) {
+async function createParty(props, uid, partyName, partyLocation, selectedContacts) {
   const location = generateStringLocation(partyLocation);
   const phoneNumbers = selectedContacts.map((contact) => (contact.phoneNumbers[0].number));
   const id = await ApiService.createParty(partyName, location);
   await ApiService.addUsersByUid([uid], id.id);
   await ApiService.addUsersByPhoneNumber(phoneNumbers, id.id);
+  const party = await ApiService.getParty(id.id);
+  props.dispatch(setParty(party));
+  props.navigation.goBack();
+  props.navigation.navigate('Party');
 }
 
-function setName(props, name) {
+function setName(props, name, setEventName) {
+  setEventName(name);
   props.dispatch(setPartyName(name));
 }
 
@@ -58,20 +67,38 @@ function PartyCreation(props) {
   const { uid, partyName, partyLocation } = props;
 
   const [contactFilter, setContactFilter] = useState('');
+  const [error, setError] = useState('');
+  const [eventName, setEventName] = useState('');
   const [selectedContacts, setSelectedContacts] = useState([]);
 
   return (
-    <View style={styles.container}>
+    <View style={[styles.container]}>
       <StaticMap style={styles.header} location={generateStringLocation(partyLocation)} />
       <View style={styles.content}>
-        <Button title="confirm" onPress={() => createParty(uid, partyName, partyLocation, selectedContacts)} />
+        <ErrorMessage message={error} />
+        <Button
+          title="confirm"
+          onPress={() => {
+            if (eventName === '') {
+              setError('Do not forget to fill the name field');
+            } else {
+              createParty(props, uid, partyName, partyLocation, selectedContacts);
+            }
+          }}
+        />
         <Text>Create your event !</Text>
-        <InputBar placeholder="Name your party !" value={partyName} onChangeText={(name) => setName(props, name)} />
+        <InputBar
+          style={error ? { borderColor: 'red' } : {}}
+          placeholder="Name your party !"
+          value={partyName}
+          onChangeText={(name) => setName(props, name, setEventName)}
+        />
         <InputBar
           placeholder="Search for contacts"
           value={contactFilter}
           onChangeText={(filter) => setContactFilter(filter)}
         />
+        <Text>{`${selectedContacts.length} contacts selected.`}</Text>
         <ContactsList
           selectedContactChanged={(list) => setSelectedContacts(list)}
           filter={contactFilter}

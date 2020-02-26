@@ -51,16 +51,19 @@ function Profile(props) {
   const [inputValue, setInputValue] = useState('');
   const [label, setLabel] = useState('');
 
+  const {
+    uid, picture, phone, firstname, lastname,
+  } = props;
+
   useEffect(() => {
     async function load() {
       await getPermissionAsync(setError);
+      const user = await ApiService.getUser(uid);
+      updateUserNames(props, user);
     }
     load();
   }, []);
 
-  const {
-    uid, picture, phone, firstname, lastname,
-  } = props;
 
   return (
     <View style={{ justifyContent: 'flex-start' }}>

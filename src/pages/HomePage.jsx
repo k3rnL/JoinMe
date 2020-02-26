@@ -1,36 +1,19 @@
 import React, { useEffect, useState } from 'react';
-import { View, StyleSheet, Image } from 'react-native';
+import {
+  View, StyleSheet, Image, Alert,
+} from 'react-native';
 import { connect } from 'react-redux';
 import * as Permissions from 'expo-permissions';
-import { Notifications } from 'expo';
 import * as Location from 'expo-location';
 import Map from '../components/Map';
 import Button from '../components/Button';
 import { setPartyLocation } from '../stores/action/partyCreation';
-import store from '../stores';
-import ApiService from '../services/ApiService';
 import ProfileButton from '../components/ProfileButton';
 import ListButton from '../components/ListButton';
 
 export const navigationOptions = {
   headerShown: false,
 };
-
-async function handleNotification() {
-  const { status } = await Permissions.askAsync(Permissions.NOTIFICATIONS);
-  // only asks if permissions have not already been determined, because
-  // iOS won't necessarily prompt the user a second time.
-  // On Android, permissions are granted on app installation, so
-  // `askAsync` will never prompt the user
-
-  // Stop here if the user did not grant permissions
-  if (status !== 'granted') {
-    alert('No notification permissions!');
-    return;
-  }
-  const token = await Notifications.getExpoPushTokenAsync();
-  await ApiService.registerUser(store.getState().profile.uid, token);
-}
 
 const styles = StyleSheet.create({
   container: {
@@ -96,7 +79,7 @@ function goToPartyList(props) {
 async function getLocationAsync(setLocation) {
   const { status } = await Permissions.askAsync(Permissions.LOCATION);
   if (status !== 'granted') {
-    alert('Permission to access location was denied');
+    Alert.alert('Permission to access location was denied');
     return;
   }
   const location = await Location.getCurrentPositionAsync({});
@@ -117,7 +100,6 @@ function Home(props) {
   });
 
   useEffect(() => {
-    handleNotification();
     getLocationAsync(setLocation);
   }, []);
 
