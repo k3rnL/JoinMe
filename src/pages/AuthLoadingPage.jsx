@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View } from 'react-native';
+import { View, Alert } from 'react-native';
 import * as firebase from 'firebase';
 import { connect } from 'react-redux';
 import * as Permissions from 'expo-permissions';
@@ -16,7 +16,7 @@ async function handleNotification(uid) {
 
   // Stop here if the user did not grant permissions
   if (status !== 'granted') {
-    alert('No notification permissions!');
+    Alert.alert('No notification permissions!');
     return;
   }
   const token = await Notifications.getExpoPushTokenAsync();

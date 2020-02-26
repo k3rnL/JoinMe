@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import { View, StyleSheet, Image } from 'react-native';
+import {
+  View, StyleSheet, Image, Alert,
+} from 'react-native';
 import { connect } from 'react-redux';
 import * as Permissions from 'expo-permissions';
 import * as Location from 'expo-location';
@@ -77,7 +79,7 @@ function goToPartyList(props) {
 async function getLocationAsync(setLocation) {
   const { status } = await Permissions.askAsync(Permissions.LOCATION);
   if (status !== 'granted') {
-    alert('Permission to access location was denied');
+    Alert.alert('Permission to access location was denied');
     return;
   }
   const location = await Location.getCurrentPositionAsync({});

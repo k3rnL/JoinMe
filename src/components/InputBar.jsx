@@ -34,7 +34,7 @@ const styles = StyleSheet.create({
 
 export default function InputBar(props) {
   const {
-    placeholder = 'placeholder', onChangeText, value, style
+    placeholder = 'placeholder', onChangeText, value, style,
   } = props;
 
   return (

@@ -82,7 +82,7 @@ function PartyCreation(props) {
             if (eventName === '') {
               setError('Do not forget to fill the name field');
             } else {
-              createParty(props, uid, partyName, partyLocation, selectedContacts)
+              createParty(props, uid, partyName, partyLocation, selectedContacts);
             }
           }}
         />
