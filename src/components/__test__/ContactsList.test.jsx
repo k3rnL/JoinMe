@@ -6,7 +6,7 @@ import ContactList from '../ContactsList';
 describe('ContactList component', () => {
   it('has correct behaviour with filter parameter', () => {
     // given
-    const contactList = <ContactList filter=""/>;
+    const contactList = <ContactList filter="" />;
 
     // when
     const tree = renderer.create(contactList).toJSON();

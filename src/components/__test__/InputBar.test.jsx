@@ -1,12 +1,12 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
 
-import InputBar from '../InputBar.jsx';
+import InputBar from '../InputBar';
 
 describe('input bar components', () => {
   it('has placeholder', () => {
     // given
-    const inputBar = <InputBar placeholder="title"/>;
+    const inputBar = <InputBar placeholder="title" />;
 
     // when
     const tree = renderer.create(inputBar).toJSON();
