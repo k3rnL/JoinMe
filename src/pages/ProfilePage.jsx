@@ -9,11 +9,12 @@ import * as Permissions from 'expo-permissions';
 import * as ImagePicker from 'expo-image-picker';
 import * as firebase from 'firebase';
 import { Divider, ListItem } from 'react-native-elements';
-import { ApiService } from '../services/ApiService';
+import ApiService from '../services/ApiService';
 import Button from '../components/Button';
 import ModalInputChange from '../components/ModalInputChange';
 import ErrorMessage from '../components/Error';
 import MaxResDefault from '../assets/maxresdefault.jpg';
+import { updatePicture, updateNames } from '../stores/action/profile';
 
 async function getPermissionAsync(setError) {
   if (Constants.platform.ios) {
@@ -38,6 +39,10 @@ async function pickImage(uid, props) {
     const user = await ApiService.getUser(uid);
     props.dispatch(updatePicture(user.picture));
   }
+}
+
+function updateUserNames(props, user) {
+  props.dispatch(updateNames(user));
 }
 
 function Profile(props) {
@@ -99,12 +104,13 @@ function Profile(props) {
               fieldValue={inputValue}
               callbackConfirm={
                 async (response) => {
-                  console.log('response : ', response);
-                }
-              }
-              callbackCancel={
-                (response) => {
-                  console.log('response : ', response);
+                  if (label === 'Firstname') {
+                    await ApiService.updateNames(uid, { firstname: response, lastname });
+                  } else if (label === 'Lastname') {
+                    await ApiService.updateNames(uid, { firstname, lastname: response });
+                  }
+                  const user = await ApiService.getUser(uid);
+                  updateUserNames(props, user);
                 }
               }
             />

@@ -1,12 +1,12 @@
 import React from 'react';
-import { ImageBackground, TouchableOpacity } from 'react-native';
+import { ImageBackground, TouchableOpacity, ViewPropTypes } from 'react-native';
+import PropTypes from 'prop-types';
 
 const user = require('../assets/user.png');
 
 export default function ProfileButton(props) {
   const {
-    onPress = () => {
-    }, style,
+    onPress, style,
   } = props;
 
   return (
@@ -26,3 +26,13 @@ export default function ProfileButton(props) {
     </TouchableOpacity>
   );
 }
+
+ProfileButton.propTypes = {
+  onPress: PropTypes.func,
+  style: ViewPropTypes.style,
+};
+
+ProfileButton.defaultProps = {
+  onPress: () => {},
+  style: {},
+};

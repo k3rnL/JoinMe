@@ -54,7 +54,11 @@ export default function ListItemModification(props) {
           <View style={styles.modal}>
             <View>
               <Text>{fieldName}</Text>
-              <InputBar onChangeText={(value) => setText(value)} placeholder={fieldName} defaultValue={fieldValue} />
+              <InputBar
+                onChangeText={(value) => setText(value)}
+                placeholder={fieldName}
+                defaultValue={fieldValue}
+              />
             </View>
             <View style={styles.buttons}>
               <Button
@@ -83,7 +87,6 @@ export default function ListItemModification(props) {
 ListItemModification.propTypes = {
   fieldName: PropTypes.string,
   fieldValue: PropTypes.string,
-  isVisible: PropTypes.bool,
   callbackConfirm: PropTypes.func,
   callbackCancel: PropTypes.func,
 };
@@ -91,7 +94,6 @@ ListItemModification.propTypes = {
 ListItemModification.defaultProps = {
   fieldName: '',
   fieldValue: '',
-  isVisible: false,
   callbackConfirm: () => {},
   callbackCancel: () => {},
 };

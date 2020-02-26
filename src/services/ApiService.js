@@ -1,6 +1,6 @@
 import Requests from './Requests';
 
-export class ApiService {
+export default class ApiService {
   static async createParty(name, address) {
     const { response, error } = await Requests.post('/party/create', {
       name,
@@ -51,7 +51,6 @@ export class ApiService {
   }
 
   static async registerUser(uid, fcmToken) {
-    console.log('registerUser == ');
     const { error } = await Requests.post('/users/register', {
       uid,
       fcm_token: fcmToken,
@@ -69,6 +68,16 @@ export class ApiService {
       {
         uid,
         fcm_token: token,
+      });
+    if (error) throw error;
+  }
+
+  static async updateNames(uid, { firstname, lastname }) {
+    const { error } = await Requests.patch(`/users/${uid}`,
+      {
+        uid,
+        firstname,
+        lastname,
       });
     if (error) throw error;
   }

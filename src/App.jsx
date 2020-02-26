@@ -38,12 +38,13 @@ const HomeStack = createStackNavigator(
       screen: PartyListPage,
     },
     Party: {
-        screen: PartyPage
-    }
+      screen: PartyPage,
+    },
 
-}, {
-    initialRouteName: 'Home'
-});
+  }, {
+    initialRouteName: 'Home',
+  },
+);
 
 const AuthStack = createSwitchNavigator(
   {

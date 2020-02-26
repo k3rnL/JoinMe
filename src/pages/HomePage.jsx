@@ -8,7 +8,7 @@ import Map from '../components/Map';
 import Button from '../components/Button';
 import { setPartyLocation } from '../stores/action/partyCreation';
 import store from '../stores';
-import { ApiService } from '../services/ApiService';
+import ApiService from '../services/ApiService';
 import ProfileButton from '../components/ProfileButton';
 import ListButton from '../components/ListButton';
 
@@ -81,7 +81,6 @@ const styles = StyleSheet.create({
 const pin = require('../assets/pin.png');
 
 function createParty(props, location) {
-  console.log(JSON.stringify(location));
   props.dispatch(setPartyLocation(location));
   props.navigation.navigate('PartyCreation');
 }

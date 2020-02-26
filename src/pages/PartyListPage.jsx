@@ -4,7 +4,7 @@ import {
 } from 'react-native';
 import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
-import { ApiService } from '../services/ApiService';
+import ApiService from '../services/ApiService';
 import { setParty } from '../stores/action/party';
 
 const styles = StyleSheet.create({

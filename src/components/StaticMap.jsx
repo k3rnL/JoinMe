@@ -1,6 +1,7 @@
 import React from 'react';
-import { ImageBackground, StyleSheet } from 'react-native';
+import { ImageBackground, StyleSheet, ViewPropTypes } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
+import PropTypes from 'prop-types';
 
 const styles = StyleSheet.create({
   image: {
@@ -12,7 +13,7 @@ const styles = StyleSheet.create({
   },
 });
 
-export default (props) => {
+export default function StaticMap(props) {
   const {
     location = 'Epitech Toulouse',
     style = styles.image,
@@ -35,4 +36,13 @@ export default (props) => {
       />
     </ImageBackground>
   );
+}
+
+StaticMap.propTypes = {
+  location: PropTypes.string.isRequired,
+  style: ViewPropTypes.style,
+};
+
+StaticMap.defaultProps = {
+  style: {},
 };

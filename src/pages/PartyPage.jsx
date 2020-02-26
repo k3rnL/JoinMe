@@ -8,7 +8,7 @@ import PropTypes from 'prop-types';
 import { ListItem } from 'react-native-elements';
 import StaticMap from '../components/StaticMap';
 import Button from '../components/Button';
-import { ApiService } from '../services/ApiService';
+import ApiService from '../services/ApiService';
 
 const styles = StyleSheet.create({
   header: {
