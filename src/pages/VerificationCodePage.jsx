@@ -9,32 +9,6 @@ import Button from '../components/Button';
 import InputBar from '../components/InputBar';
 import store from '../stores';
 
-
-export default function VerificationCode(props) {
-  const [code, setCode] = useState('');
-
-  return (
-    <View style={styles.container}>
-      <Image
-        source={require('../assets/logo.png')}
-        style={{ width: 160, height: 130, resizeMode: 'stretch' }}
-      />
-      <InputBar value={code} onChangeText={(code) => setCode(code)} placeholder="Code" />
-      <Button onPress={() => confirmCode(code, props)} title="OK" />
-    </View>
-  );
-}
-
-function confirmCode(code, props) {
-  store.getState().profile.confirmation.confirm(code)
-    .then(() => {
-      props.navigation.navigate('App');
-    })
-    .catch((err) => {
-      alert(`Oops! something is wrong ${err}`);
-    });
-}
-
 const styles = StyleSheet.create({
   logo: {
     justifyContent: 'center',
@@ -99,6 +73,7 @@ const styles = StyleSheet.create({
     position: 'absolute',
   },
 });
+
 function confirmCode(code, props) {
   store.getState().profile.confirmation.confirm(code)
     .then(() => {
