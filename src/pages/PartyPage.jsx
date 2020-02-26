@@ -42,7 +42,7 @@ function itemView(item) {
   return (
     <ListItem
       title={item.phone}
-      subtitle={item.phone}
+      subtitle={`${item.firstname || ''} ${item.lastname || ''}`}
       leftAvatar={{ source: { uri: item.picture } }}
       bottomDivider
     />

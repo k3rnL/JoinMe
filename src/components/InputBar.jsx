@@ -1,6 +1,6 @@
 import React from 'react';
 import {
-  View, StyleSheet, TextInput,
+  View, StyleSheet, TextInput, ViewPropTypes,
 } from 'react-native';
 import PropTypes from 'prop-types';
 
@@ -34,11 +34,11 @@ const styles = StyleSheet.create({
 
 export default function InputBar(props) {
   const {
-    placeholder = 'placeholder', onChangeText, value,
+    placeholder = 'placeholder', onChangeText, value, style
   } = props;
 
   return (
-    <View style={styles.container}>
+    <View style={[styles.container, style]}>
       <TextInput
         style={styles.input}
         placeholder={placeholder}
@@ -53,8 +53,10 @@ InputBar.propTypes = {
   placeholder: PropTypes.string,
   onChangeText: PropTypes.func.isRequired,
   value: PropTypes.string.isRequired,
+  style: ViewPropTypes.style,
 };
 
 InputBar.defaultProps = {
   placeholder: '',
+  style: {},
 };

@@ -12,13 +12,6 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     paddingTop: 10,
   },
-  paragraph: {
-    margin: 24,
-    fontSize: 18,
-    fontWeight: 'bold',
-    textAlign: 'center',
-    color: '#34495e',
-  },
   item: {
     fontSize: 18,
     flexDirection: 'row',
@@ -66,21 +59,22 @@ async function loadContacts(setContact) {
 }
 
 async function itemSelected(item, selected, setSelected, selectedContactChanged) {
-  const currentlySelected = { ...selected };
-
+  const currentlySelected = [...selected];
   const { id } = item;
 
-  if (currentlySelected[id]) {
-    currentlySelected[id] = !currentlySelected[id];
+  const indexId = currentlySelected.indexOf(id);
+
+  if (indexId === -1) {
+    currentlySelected.push(id);
+    setSelected(currentlySelected);
   } else {
-    currentlySelected[id] = true;
+    currentlySelected.splice(indexId, 1);
+    setSelected(currentlySelected);
   }
 
-  setSelected(currentlySelected);
-
   if (selectedContactChanged) {
-    const ids = Object.keys(currentlySelected);
-    const list = await Promise.all(ids.map((idKey) => Contacts.getContactByIdAsync(idKey)));
+    const contactIds = currentlySelected.map((idKey) => Contacts.getContactByIdAsync(idKey));
+    const list = await Promise.all(contactIds);
     selectedContactChanged(list);
   }
 }
@@ -89,10 +83,11 @@ function renderItem(item, selected, setSelected, selectedContactChanged) {
   const selectionStyle = [
     styles.item,
     styles.selection,
-    selected[item.id] ? styles.itemSelected : styles.itemUnselected,
+    selected.includes(item.id) ? styles.itemSelected : styles.itemUnselected,
   ];
 
   const onPressHandler = () => itemSelected(item, selected, setSelected, selectedContactChanged);
+
   return (
     <TouchableOpacity style={styles.item} onPress={onPressHandler}>
       <Text style={selectionStyle} />
@@ -103,7 +98,7 @@ function renderItem(item, selected, setSelected, selectedContactChanged) {
 
 export default function ContactsList(props) {
   const [contacts, setContacts] = useState([]);
-  const [selected, setSelected] = useState({});
+  const [selected, setSelected] = useState([]);
 
   useEffect(() => {
     async function load() {
@@ -120,6 +115,7 @@ export default function ContactsList(props) {
     <View style={styles.container}>
       <FlatList
         data={filtered}
+        keyExtractor={(item) => `${item.name}-${item.id}`}
         renderItem={({ item }) => renderItem(item, selected, setSelected, selectedContactChanged)}
       />
     </View>
