@@ -6,7 +6,7 @@ import StaticMap from '../StaticMap';
 describe('StaticMap component', () => {
   it('has location', () => {
     // given
-    const staticMap = <StaticMap location="Epitech Paris" />;
+    const staticMap = <StaticMap location="Paris" />;
 
     // when
     const tree = renderer.create(staticMap).toJSON();

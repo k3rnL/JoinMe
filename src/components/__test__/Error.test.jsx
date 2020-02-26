@@ -1,15 +1,15 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
 
-import ContactList from '../ContactsList';
+import ErrorMessage from '../Error';
 
-describe('ContactList component', () => {
+describe('Error component', () => {
   it('with default parameters', () => {
     // given
-    const contactList = <ContactList />;
+    const errorMessage = <ErrorMessage />;
 
     // when
-    const tree = renderer.create(contactList).toJSON();
+    const tree = renderer.create(errorMessage).toJSON();
 
     // then
     expect(tree).toMatchSnapshot();

@@ -12,20 +12,14 @@ exports[`StaticMap component has location 1`] = `
         "right": 0,
         "top": 0,
       },
-      Object {
-        "bottom": 0,
-        "height": 400,
-        "left": 0,
-        "right": 0,
-        "top": 0,
-      },
+      Object {},
     ]
   }
 >
   <Image
     source={
       Object {
-        "uri": "https://maps.googleapis.com/maps/api/staticmap?center=Epitech%20Paris&zoom=13&size=1800x1800&maptype=roadmap&markers=color:blue%7CEpitech%20Paris&key=AIzaSyAfv8IPCxhiURtrI8tDyQptGEVQoOl0G3c",
+        "uri": "https://maps.googleapis.com/maps/api/staticmap?center=Paris&zoom=13&size=1800x1800&maptype=roadmap&markers=color:blue%7CParis&key=AIzaSyAfv8IPCxhiURtrI8tDyQptGEVQoOl0G3c",
       }
     }
     style={

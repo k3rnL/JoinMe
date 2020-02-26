@@ -1,31 +1,36 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`input bar components has placeholder 1`] = `
+exports[`Input bar component with default parameters 1`] = `
 <View
   style={
-    Object {
-      "alignItems": "center",
-      "backgroundColor": "white",
-      "borderColor": "white",
-      "borderRadius": 25,
-      "borderWidth": 1,
-      "elevation": 9,
-      "height": 40,
-      "justifyContent": "center",
-      "shadowColor": "#000",
-      "shadowOffset": Object {
-        "height": 4,
-        "width": 0,
+    Array [
+      Object {
+        "alignItems": "center",
+        "backgroundColor": "white",
+        "borderColor": "white",
+        "borderRadius": 25,
+        "borderWidth": 1,
+        "elevation": 9,
+        "height": 40,
+        "justifyContent": "center",
+        "margin": 10,
+        "shadowColor": "#000",
+        "shadowOffset": Object {
+          "height": 4,
+          "width": 0,
+        },
+        "shadowOpacity": 0.32,
+        "shadowRadius": 5.46,
+        "width": 300,
       },
-      "shadowOpacity": 0.32,
-      "shadowRadius": 5.46,
-      "width": 300,
-    }
+      Object {},
+    ]
   }
 >
   <TextInput
     allowFontScaling={true}
-    placeholder="title"
+    onChangeText={[Function]}
+    placeholder=""
     rejectResponderTermination={true}
     style={
       Object {
@@ -34,6 +39,7 @@ exports[`input bar components has placeholder 1`] = `
       }
     }
     underlineColorAndroid="transparent"
+    value="value"
   />
 </View>
 `;
