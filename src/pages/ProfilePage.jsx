@@ -10,8 +10,8 @@ import * as ImagePicker from 'expo-image-picker';
 import * as firebase from 'firebase';
 import { Divider, ListItem } from 'react-native-elements';
 import { ApiService } from '../services/ApiService';
-import { updatePicture } from '../stores/action/profile';
 import Button from '../components/Button';
+import ModalInputChange from '../components/ModalInputChange';
 import ErrorMessage from '../components/Error';
 import MaxResDefault from '../assets/maxresdefault.jpg';
 
@@ -42,6 +42,9 @@ async function pickImage(uid, props) {
 
 function Profile(props) {
   const [error, setError] = useState('');
+  const [isOpenModal, setIsOpenModal] = useState(false);
+  const [inputValue, setInputValue] = useState('');
+  const [label, setLabel] = useState('');
 
   useEffect(() => {
     async function load() {
@@ -50,7 +53,9 @@ function Profile(props) {
     load();
   }, []);
 
-  const { uid, picture, phone } = props;
+  const {
+    uid, picture, phone, firstname, lastname,
+  } = props;
 
   return (
     <View style={{ justifyContent: 'flex-start' }}>
@@ -86,6 +91,44 @@ function Profile(props) {
         </TouchableOpacity>
       </ImageBackground>
       <Divider />
+      {
+        isOpenModal
+          ? (
+            <ModalInputChange
+              fieldName={label}
+              fieldValue={inputValue}
+              callbackConfirm={
+                async (response) => {
+                  console.log('response : ', response);
+                }
+              }
+              callbackCancel={
+                (response) => {
+                  console.log('response : ', response);
+                }
+              }
+            />
+          )
+          : null
+      }
+      <ListItem
+        title="Firstname"
+        subtitle={firstname}
+        onPress={() => {
+          setInputValue(firstname);
+          setLabel('Firstname');
+          setIsOpenModal(!isOpenModal);
+        }}
+      />
+      <ListItem
+        title="Lastname"
+        subtitle={lastname}
+        onPress={() => {
+          setInputValue(lastname);
+          setLabel('Lastname');
+          setIsOpenModal(!isOpenModal);
+        }}
+      />
       <ListItem title="Phone" subtitle={phone} />
       <Divider />
       <ErrorMessage message={error} />
@@ -99,17 +142,23 @@ function Profile(props) {
 export default connect((state) => ({
   uid: state.profile.uid,
   phone: state.profile.phone,
+  firstname: state.profile.firstname,
+  lastname: state.profile.lastname,
   picture: state.profile.picture,
 }))(Profile);
 
 Profile.propTypes = {
   uid: PropTypes.string,
   phone: PropTypes.string,
+  firstname: PropTypes.string,
+  lastname: PropTypes.string,
   picture: PropTypes.string,
 };
 
 Profile.defaultProps = {
   uid: '',
   phone: '',
+  firstname: '',
+  lastname: '',
   picture: '',
 };
