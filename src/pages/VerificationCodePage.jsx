@@ -85,7 +85,7 @@ function confirmCode(code, props) {
     });
 }
 
-const logo = require('../assets/logo.png');
+const logo = require('../assets/icon.png');
 
 export default function VerificationCode(props) {
   const [code, setCode] = useState('');

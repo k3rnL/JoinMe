@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   Modal, Text, View, StyleSheet,
 } from 'react-native';
@@ -40,6 +40,8 @@ export default function ListItemModification(props) {
     fieldName, fieldValue, callbackConfirm, callbackCancel,
   } = props;
 
+  useEffect(() => setText(fieldValue), []);
+
   return (
     <View>
       <Modal
@@ -55,10 +57,9 @@ export default function ListItemModification(props) {
             <View>
               <Text>{fieldName}</Text>
               <InputBar
-                value=""
                 onChangeText={(value) => setText(value)}
+                value={text}
                 placeholder={fieldName}
-                defaultValue={fieldValue}
               />
             </View>
             <View style={styles.buttons}>

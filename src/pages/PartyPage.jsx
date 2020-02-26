@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import {
-  View, StyleSheet, FlatList,
+  View, StyleSheet, FlatList, TouchableOpacity
 } from 'react-native';
 import { connect } from 'react-redux';
 import { Linking } from 'expo';
@@ -40,12 +40,14 @@ async function loadMembers(party, setMembers) {
 
 function itemView(item) {
   return (
-    <ListItem
-      title={item.phone}
-      subtitle={`${item.firstname || ''} ${item.lastname || ''}`}
-      leftAvatar={{ source: { uri: item.picture } }}
-      bottomDivider
-    />
+    <TouchableOpacity onPress={() => Linking.openURL(`tel://${item.phone}`)}>
+      <ListItem
+        title={`${item.firstname || ''} ${item.lastname || ''}`}
+        subtitle={item.phone}
+        leftAvatar={{ source: { uri: item.picture } }}
+        bottomDivider
+      />
+    </TouchableOpacity>
   );
 }
 

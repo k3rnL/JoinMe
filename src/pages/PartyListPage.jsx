@@ -1,18 +1,19 @@
 import { connect } from 'react-redux';
 import {
-  Text, View, TouchableOpacity, FlatList, StyleSheet,
+  View, FlatList, StyleSheet,
 } from 'react-native';
 import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import ApiService from '../services/ApiService';
 import { setParty } from '../stores/action/party';
+import SwipeablePartyItemList from '../components/SwipeablePartyItemList';
 
 const styles = StyleSheet.create({
   container: {
     height: '100%',
     padding: 10,
     backgroundColor: 'white',
-    alignItems: 'center',
+    alignItems: 'stretch',
   },
   item: {
     padding: 10,
@@ -31,6 +32,11 @@ async function getParties(uid, setParties) {
   setParties(parties);
 }
 
+function deleteParty(uid, party, parties, setParties) {
+  setParties(parties.filter((p) => p.id !== party.id));
+  ApiService.unsubscribeToParty(uid, party.id);
+}
+
 function PartyList(props) {
   const [parties, setParties] = useState([]);
 
@@ -46,9 +52,11 @@ function PartyList(props) {
         keyExtractor={((item) => `${item.id}`)}
         data={parties}
         renderItem={({ item }) => (
-          <TouchableOpacity onPress={() => goToParty(props, item)}>
-            <Text style={styles.item}>{`${item.name}`}</Text>
-          </TouchableOpacity>
+          <SwipeablePartyItemList
+            party={item}
+            onPress={() => goToParty(props, item)}
+            onAction={() => deleteParty(uid, item, parties, setParties)}
+          />
         )}
       />
     </View>
