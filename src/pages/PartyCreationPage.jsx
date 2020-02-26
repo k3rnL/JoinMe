@@ -9,6 +9,7 @@ import ContactsList from '../components/ContactsList';
 import { setPartyName } from '../stores/action/partyCreation';
 import ApiService from '../services/ApiService';
 import ErrorMessage from '../components/Error';
+import { setParty } from '../stores/action/party';
 
 const styles = StyleSheet.create({
   container: {
@@ -45,12 +46,16 @@ function generateStringLocation(partyLocation) {
   return `${partyLocation.latitude},${partyLocation.longitude}`;
 }
 
-async function createParty(uid, partyName, partyLocation, selectedContacts) {
+async function createParty(props, uid, partyName, partyLocation, selectedContacts) {
   const location = generateStringLocation(partyLocation);
   const phoneNumbers = selectedContacts.map((contact) => (contact.phoneNumbers[0].number));
   const id = await ApiService.createParty(partyName, location);
   await ApiService.addUsersByUid([uid], id.id);
   await ApiService.addUsersByPhoneNumber(phoneNumbers, id.id);
+  const party = await ApiService.getParty(id.id);
+  props.dispatch(setParty(party));
+  props.navigation.goBack();
+  props.navigation.navigate('Party');
 }
 
 function setName(props, name, setEventName) {
@@ -77,7 +82,7 @@ function PartyCreation(props) {
             if (eventName === '') {
               setError('Do not forget to fill the name field');
             } else {
-              createParty(uid, partyName, partyLocation, selectedContacts);
+              createParty(props, uid, partyName, partyLocation, selectedContacts)
             }
           }}
         />
