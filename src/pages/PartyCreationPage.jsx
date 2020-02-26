@@ -96,7 +96,14 @@ function PartyCreation(props) {
         <InputBar
           placeholder="Search for contacts"
           value={contactFilter}
-          onChangeText={(filter) => setContactFilter(filter)}
+          onChangeText={(filter) => {
+            if (filter !== '') {
+              const inputCleaned = filter.match(/[A-Za-z\s]+/i);
+              setContactFilter(inputCleaned ? inputCleaned[0] : '');
+            } else {
+              setContactFilter('');
+            }
+          }}
         />
         <Text>{`${selectedContacts.length} contacts selected.`}</Text>
         <ContactsList
