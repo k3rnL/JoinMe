@@ -8,6 +8,7 @@ import StaticMap from '../components/StaticMap';
 import ContactsList from '../components/ContactsList';
 import { setPartyName } from '../stores/action/partyCreation';
 import ApiService from '../services/ApiService';
+import { setParty } from '../stores/action/party';
 
 const styles = StyleSheet.create({
   container: {
@@ -42,12 +43,16 @@ function generateStringLocation(partyLocation) {
   return `${partyLocation.latitude},${partyLocation.longitude}`;
 }
 
-async function createParty(uid, partyName, partyLocation, selectedContacts) {
+async function createParty(props, uid, partyName, partyLocation, selectedContacts) {
   const location = generateStringLocation(partyLocation);
   const phoneNumbers = selectedContacts.map((contact) => (contact.phoneNumbers[0].number));
   const id = await ApiService.createParty(partyName, location);
   await ApiService.addUsersByUid([uid], id.id);
   await ApiService.addUsersByPhoneNumber(phoneNumbers, id.id);
+  const party = await ApiService.getParty(id.id);
+  props.dispatch(setParty(party));
+  props.navigation.goBack();
+  props.navigation.navigate('Party');
 }
 
 function setName(props, name) {
@@ -64,7 +69,7 @@ function PartyCreation(props) {
     <View style={styles.container}>
       <StaticMap style={styles.header} location={generateStringLocation(partyLocation)} />
       <View style={styles.content}>
-        <Button title="confirm" onPress={() => createParty(uid, partyName, partyLocation, selectedContacts)} />
+        <Button title="confirm" onPress={() => createParty(props, uid, partyName, partyLocation, selectedContacts)} />
         <Text>Create your event !</Text>
         <InputBar placeholder="Name your party !" value={partyName} onChangeText={(name) => setName(props, name)} />
         <InputBar
