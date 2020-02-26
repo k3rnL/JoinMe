@@ -10,6 +10,7 @@ import React, { useState } from 'react';
 import {
   Container, Icon, Input, Item,
 } from 'native-base';
+import PropTypes from 'prop-types';
 import Button from './Button';
 
 
@@ -100,9 +101,8 @@ async function getCountry(country, setModalVisible, setPhoneNumber, setFlag) {
 export default function InputBarPhone(props) {
   const [flag, setFlag] = useState(defaultFlag);
   const [modalVisible, setModalVisible] = useState(false);
-  const [_phoneNumber, _setPhoneNumber] = useState('');
 
-  const { phoneNumber = _phoneNumber, setPhoneNumber = _setPhoneNumber } = props;
+  const { phoneNumber, setPhoneNumber } = props;
 
   const defaultCode = '+33';
 
@@ -216,3 +216,13 @@ export default function InputBarPhone(props) {
     </View>
   );
 }
+
+InputBarPhone.propTypes = {
+  phoneNumber: PropTypes.string,
+  setPhoneNumber: PropTypes.func,
+};
+
+InputBarPhone.defaultProps = {
+  phoneNumber: '',
+  setPhoneNumber: () => {},
+};

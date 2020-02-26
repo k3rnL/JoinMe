@@ -136,9 +136,9 @@ function Auth(props) {
     <View style={styles.container}>
       <Image
         source={logo}
-        style={{width: 160, height: 130, resizeMode: 'stretch'}}
+        style={{ width: 160, height: 130, resizeMode: 'stretch' }}
       />
-      <InputBarPhone phoneNumber={phoneNumber} setPhoneNumber={setPhoneNumber}/>
+      <InputBarPhone phoneNumber={phoneNumber} setPhoneNumber={setPhoneNumber} />
       <Button
         title="OK"
         onPress={() => {

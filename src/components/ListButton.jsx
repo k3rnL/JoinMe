@@ -1,9 +1,10 @@
 import React from 'react';
-import { ImageBackground, TouchableOpacity } from 'react-native';
+import { ImageBackground, TouchableOpacity, ViewPropTypes } from 'react-native';
+import PropTypes from 'prop-types';
 
 const list = require('../assets/list.png');
 
-export default function ProfileButton(props) {
+export default function ListButton(props) {
   const {
     onPress = () => {
     }, style,
@@ -26,3 +27,13 @@ export default function ProfileButton(props) {
     </TouchableOpacity>
   );
 }
+
+ListButton.propTypes = {
+  onPress: PropTypes.func,
+  style: ViewPropTypes.style,
+};
+
+ListButton.defaultProps = {
+  onPress: () => {},
+  style: {},
+};
