@@ -109,12 +109,14 @@ export default function ContactsList(props) {
 
   const { filter = '', selectedContactChanged = null } = props;
 
-  const filtered = contacts.filter((contact) => contact.name.match(`(${filter})\\w+`));
+  const regExp = new RegExp(`(${filter})+`, 'ig');
+  const filtered = contacts.filter((contact) => contact.name.match(regExp));
+  const data = filtered.length ? filtered : contacts;
 
   return (
     <View style={styles.container}>
       <FlatList
-        data={filtered}
+        data={data}
         keyExtractor={(item) => `${item.name}-${item.id}`}
         renderItem={({ item }) => renderItem(item, selected, setSelected, selectedContactChanged)}
       />
