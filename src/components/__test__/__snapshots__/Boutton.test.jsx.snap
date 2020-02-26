@@ -2,59 +2,50 @@
 
 exports[`Button component has a title 1`] = `
 <View
+  accessible={true}
+  focusable={true}
+  isTVSelectable={true}
+  onClick={[Function]}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
   style={
-    Array [
-      Object {
-        "alignItems": "center",
-        "backgroundColor": "#2F74C5",
-        "borderColor": "#2F74C5",
-        "borderRadius": 20,
-        "borderWidth": 1,
-        "elevation": 5,
-        "height": 42,
-        "justifyContent": "center",
-        "shadowColor": "#000",
-        "shadowOffset": Object {
-          "height": 2,
-          "width": 0,
-        },
-        "shadowOpacity": 0.25,
-        "shadowRadius": 3.84,
-        "width": 160,
+    Object {
+      "alignItems": "center",
+      "backgroundColor": "#2F74C5",
+      "borderColor": "#2F74C5",
+      "borderRadius": 20,
+      "borderWidth": 1,
+      "elevation": 5,
+      "height": 42,
+      "justifyContent": "center",
+      "margin": 10,
+      "opacity": 1,
+      "shadowColor": "#000",
+      "shadowOffset": Object {
+        "height": 2,
+        "width": 0,
       },
-      Object {},
-    ]
+      "shadowOpacity": 0.25,
+      "shadowRadius": 3.84,
+      "width": 160,
+    }
   }
 >
-  <View
-    accessible={true}
-    focusable={false}
-    isTVSelectable={true}
-    onClick={[Function]}
-    onResponderGrant={[Function]}
-    onResponderMove={[Function]}
-    onResponderRelease={[Function]}
-    onResponderTerminate={[Function]}
-    onResponderTerminationRequest={[Function]}
-    onStartShouldSetResponder={[Function]}
+  <Text
     style={
-      Object {
-        "opacity": 1,
-      }
+      Array [
+        Object {
+          "color": "white",
+        },
+        Object {},
+      ]
     }
   >
-    <Text
-      style={
-        Array [
-          Object {
-            "color": "white",
-          },
-          Object {},
-        ]
-      }
-    >
-      title
-    </Text>
-  </View>
+    title
+  </Text>
 </View>
 `;

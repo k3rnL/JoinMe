@@ -1,0 +1,2290 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`input bar phone component has with phone attribute 1`] = `
+<View
+  style={
+    Object {
+      "backgroundColor": "#ffffff",
+      "flex": 1,
+      "flexDirection": "column",
+      "justifyContent": "center",
+    }
+  }
+>
+  <View
+    style={
+      Array [
+        Object {
+          "backgroundColor": "#fff",
+          "flex": 1,
+          "height": 1334,
+        },
+        Object {
+          "alignItems": "center",
+          "backgroundColor": "#ffffff",
+          "flexDirection": "row",
+          "justifyContent": "center",
+          "paddingHorizontal": 30,
+        },
+      ]
+    }
+  >
+    <View
+      accessible={true}
+      focusable={false}
+      isTVSelectable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "alignItems": "center",
+          "backgroundColor": "transparent",
+          "borderBottomWidth": 1,
+          "borderColor": "#D9D5DC",
+          "borderLeftWidth": 1,
+          "borderRadius": 30,
+          "borderRightWidth": 1,
+          "borderTopWidth": 1,
+          "borderWidth": 1,
+          "flexDirection": "row",
+          "marginBottom": 10,
+          "marginLeft": 2,
+          "opacity": 1,
+        }
+      }
+    >
+      <Text />
+      <View
+        accessible={true}
+        focusable={true}
+        isTVSelectable={true}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "opacity": 1,
+          }
+        }
+      >
+        <View>
+          <Text
+            style={
+              Object {
+                "fontSize": 40,
+              }
+            }
+          >
+            🇫🇷
+          </Text>
+        </View>
+      </View>
+      <TextInput
+        allowFontScaling={true}
+        autoCapitalize="none"
+        autoCorrect={false}
+        editable={true}
+        keyboardType="phone-pad"
+        onChangeText={[Function]}
+        placeholder="+33"
+        placeholderTextColor="black"
+        rejectResponderTermination={true}
+        returnKeyType="done"
+        secureTextEntry={false}
+        style={
+          Array [
+            Object {
+              "color": "#000",
+              "flex": 1,
+              "fontSize": 17,
+              "height": 50,
+              "paddingLeft": 8,
+              "paddingRight": 5,
+              "top": 1.5,
+            },
+            Object {
+              "color": "black",
+              "flex": 1,
+              "fontSize": 17,
+              "fontWeight": "bold",
+            },
+          ]
+        }
+        underlineColorAndroid="rgba(0,0,0,0)"
+        value=""
+      />
+      <Modal
+        animationType="slide"
+        hardwareAccelerated={false}
+        transparent={false}
+        visible={false}
+      >
+        <View
+          style={
+            Object {
+              "flex": 1,
+            }
+          }
+        >
+          <View
+            style={
+              Object {
+                "backgroundColor": "black",
+                "flex": 10,
+                "paddingTop": 0,
+                "zIndex": 0,
+              }
+            }
+          >
+            <RCTScrollView
+              data={
+                Array [
+                  Object {
+                    "code": "AF",
+                    "dial_code": "+93",
+                    "flag": "🇦🇫",
+                    "name": "Afghanistan",
+                  },
+                  Object {
+                    "code": "AX",
+                    "dial_code": "+358",
+                    "flag": "🇦🇽",
+                    "name": "Åland Islands",
+                  },
+                  Object {
+                    "code": "AL",
+                    "dial_code": "+355",
+                    "flag": "🇦🇱",
+                    "name": "Albania",
+                  },
+                  Object {
+                    "code": "DZ",
+                    "dial_code": "+213",
+                    "flag": "🇩🇿",
+                    "name": "Algeria",
+                  },
+                  Object {
+                    "code": "AS",
+                    "dial_code": "+1684",
+                    "flag": "🇦🇸",
+                    "name": "American Samoa",
+                  },
+                  Object {
+                    "code": "AD",
+                    "dial_code": "+376",
+                    "flag": "🇦🇩",
+                    "name": "Andorra",
+                  },
+                  Object {
+                    "code": "AO",
+                    "dial_code": "+244",
+                    "flag": "🇦🇴",
+                    "name": "Angola",
+                  },
+                  Object {
+                    "code": "AI",
+                    "dial_code": "+1264",
+                    "flag": "🇦🇮",
+                    "name": "Anguilla",
+                  },
+                  Object {
+                    "code": "AQ",
+                    "dial_code": "+672",
+                    "flag": "🇦🇶",
+                    "name": "Antarctica",
+                  },
+                  Object {
+                    "code": "AG",
+                    "dial_code": "+1268",
+                    "flag": "🇦🇬",
+                    "name": "Antigua and Barbuda",
+                  },
+                  Object {
+                    "code": "AR",
+                    "dial_code": "+54",
+                    "flag": "🇦🇷",
+                    "name": "Argentina",
+                  },
+                  Object {
+                    "code": "AM",
+                    "dial_code": "+374",
+                    "flag": "🇦🇲",
+                    "name": "Armenia",
+                  },
+                  Object {
+                    "code": "AW",
+                    "dial_code": "+297",
+                    "flag": "🇦🇼",
+                    "name": "Aruba",
+                  },
+                  Object {
+                    "code": "AU",
+                    "dial_code": "+61",
+                    "flag": "🇦🇺",
+                    "name": "Australia",
+                  },
+                  Object {
+                    "code": "AT",
+                    "dial_code": "+43",
+                    "flag": "🇦🇹",
+                    "name": "Austria",
+                  },
+                  Object {
+                    "code": "AZ",
+                    "dial_code": "+994",
+                    "flag": "🇦🇿",
+                    "name": "Azerbaijan",
+                  },
+                  Object {
+                    "code": "BS",
+                    "dial_code": "+1242",
+                    "flag": "🇧🇸",
+                    "name": "Bahamas",
+                  },
+                  Object {
+                    "code": "BH",
+                    "dial_code": "+973",
+                    "flag": "🇧🇭",
+                    "name": "Bahrain",
+                  },
+                  Object {
+                    "code": "BD",
+                    "dial_code": "+880",
+                    "flag": "🇧🇩",
+                    "name": "Bangladesh",
+                  },
+                  Object {
+                    "code": "BB",
+                    "dial_code": "+1246",
+                    "flag": "🇧🇧",
+                    "name": "Barbados",
+                  },
+                  Object {
+                    "code": "BY",
+                    "dial_code": "+375",
+                    "flag": "🇧🇾",
+                    "name": "Belarus",
+                  },
+                  Object {
+                    "code": "BE",
+                    "dial_code": "+32",
+                    "flag": "🇧🇪",
+                    "name": "Belgium",
+                  },
+                  Object {
+                    "code": "BZ",
+                    "dial_code": "+501",
+                    "flag": "🇧🇿",
+                    "name": "Belize",
+                  },
+                  Object {
+                    "code": "BJ",
+                    "dial_code": "+229",
+                    "flag": "🇧🇯",
+                    "name": "Benin",
+                  },
+                  Object {
+                    "code": "BM",
+                    "dial_code": "+1441",
+                    "flag": "🇧🇲",
+                    "name": "Bermuda",
+                  },
+                  Object {
+                    "code": "BT",
+                    "dial_code": "+975",
+                    "flag": "🇧🇹",
+                    "name": "Bhutan",
+                  },
+                  Object {
+                    "code": "BO",
+                    "dial_code": "+591",
+                    "flag": "🇧🇴",
+                    "name": "Bolivia, Plurinational State of bolivia",
+                  },
+                  Object {
+                    "code": "BA",
+                    "dial_code": "+387",
+                    "flag": "🇧🇦",
+                    "name": "Bosnia and Herzegovina",
+                  },
+                  Object {
+                    "code": "BW",
+                    "dial_code": "+267",
+                    "flag": "🇧🇼",
+                    "name": "Botswana",
+                  },
+                  Object {
+                    "code": "BV",
+                    "dial_code": "+47",
+                    "flag": "🇧🇻",
+                    "name": "Bouvet Island",
+                  },
+                  Object {
+                    "code": "BR",
+                    "dial_code": "+55",
+                    "flag": "🇧🇷",
+                    "name": "Brazil",
+                  },
+                  Object {
+                    "code": "IO",
+                    "dial_code": "+246",
+                    "flag": "🇮🇴",
+                    "name": "British Indian Ocean Territory",
+                  },
+                  Object {
+                    "code": "BN",
+                    "dial_code": "+673",
+                    "flag": "🇧🇳",
+                    "name": "Brunei Darussalam",
+                  },
+                  Object {
+                    "code": "BG",
+                    "dial_code": "+359",
+                    "flag": "🇧🇬",
+                    "name": "Bulgaria",
+                  },
+                  Object {
+                    "code": "BF",
+                    "dial_code": "+226",
+                    "flag": "🇧🇫",
+                    "name": "Burkina Faso",
+                  },
+                  Object {
+                    "code": "BI",
+                    "dial_code": "+257",
+                    "flag": "🇧🇮",
+                    "name": "Burundi",
+                  },
+                  Object {
+                    "code": "KH",
+                    "dial_code": "+855",
+                    "flag": "🇰🇭",
+                    "name": "Cambodia",
+                  },
+                  Object {
+                    "code": "CM",
+                    "dial_code": "+237",
+                    "flag": "🇨🇲",
+                    "name": "Cameroon",
+                  },
+                  Object {
+                    "code": "CA",
+                    "dial_code": "+1",
+                    "flag": "🇨🇦",
+                    "name": "Canada",
+                  },
+                  Object {
+                    "code": "CV",
+                    "dial_code": "+238",
+                    "flag": "🇨🇻",
+                    "name": "Cape Verde",
+                  },
+                  Object {
+                    "code": "KY",
+                    "dial_code": "+345",
+                    "flag": "🇰🇾",
+                    "name": "Cayman Islands",
+                  },
+                  Object {
+                    "code": "CF",
+                    "dial_code": "+236",
+                    "flag": "🇨🇫",
+                    "name": "Central African Republic",
+                  },
+                  Object {
+                    "code": "TD",
+                    "dial_code": "+235",
+                    "flag": "🇹🇩",
+                    "name": "Chad",
+                  },
+                  Object {
+                    "code": "CL",
+                    "dial_code": "+56",
+                    "flag": "🇨🇱",
+                    "name": "Chile",
+                  },
+                  Object {
+                    "code": "CN",
+                    "dial_code": "+86",
+                    "flag": "🇨🇳",
+                    "name": "China",
+                  },
+                  Object {
+                    "code": "CX",
+                    "dial_code": "+61",
+                    "flag": "🇨🇽",
+                    "name": "Christmas Island",
+                  },
+                  Object {
+                    "code": "CC",
+                    "dial_code": "+61",
+                    "flag": "🇨🇨",
+                    "name": "Cocos (Keeling) Islands",
+                  },
+                  Object {
+                    "code": "CO",
+                    "dial_code": "+57",
+                    "flag": "🇨🇴",
+                    "name": "Colombia",
+                  },
+                  Object {
+                    "code": "KM",
+                    "dial_code": "+269",
+                    "flag": "🇰🇲",
+                    "name": "Comoros",
+                  },
+                  Object {
+                    "code": "CG",
+                    "dial_code": "+242",
+                    "flag": "🇨🇬",
+                    "name": "Congo",
+                  },
+                  Object {
+                    "code": "CD",
+                    "dial_code": "+243",
+                    "flag": "🇨🇩",
+                    "name": "Congo, The Democratic Republic of the Congo",
+                  },
+                  Object {
+                    "code": "CK",
+                    "dial_code": "+682",
+                    "flag": "🇨🇰",
+                    "name": "Cook Islands",
+                  },
+                  Object {
+                    "code": "CR",
+                    "dial_code": "+506",
+                    "flag": "🇨🇷",
+                    "name": "Costa Rica",
+                  },
+                  Object {
+                    "code": "CI",
+                    "dial_code": "+225",
+                    "flag": "🇨🇮",
+                    "name": "Cote d'Ivoire",
+                  },
+                  Object {
+                    "code": "HR",
+                    "dial_code": "+385",
+                    "flag": "🇭🇷",
+                    "name": "Croatia",
+                  },
+                  Object {
+                    "code": "CU",
+                    "dial_code": "+53",
+                    "flag": "🇨🇺",
+                    "name": "Cuba",
+                  },
+                  Object {
+                    "code": "CY",
+                    "dial_code": "+357",
+                    "flag": "🇨🇾",
+                    "name": "Cyprus",
+                  },
+                  Object {
+                    "code": "CZ",
+                    "dial_code": "+420",
+                    "flag": "🇨🇿",
+                    "name": "Czech Republic",
+                  },
+                  Object {
+                    "code": "DK",
+                    "dial_code": "+45",
+                    "flag": "🇩🇰",
+                    "name": "Denmark",
+                  },
+                  Object {
+                    "code": "DJ",
+                    "dial_code": "+253",
+                    "flag": "🇩🇯",
+                    "name": "Djibouti",
+                  },
+                  Object {
+                    "code": "DM",
+                    "dial_code": "+1767",
+                    "flag": "🇩🇲",
+                    "name": "Dominica",
+                  },
+                  Object {
+                    "code": "DO",
+                    "dial_code": "+1849",
+                    "flag": "🇩🇴",
+                    "name": "Dominican Republic",
+                  },
+                  Object {
+                    "code": "EC",
+                    "dial_code": "+593",
+                    "flag": "🇪🇨",
+                    "name": "Ecuador",
+                  },
+                  Object {
+                    "code": "EG",
+                    "dial_code": "+20",
+                    "flag": "🇪🇬",
+                    "name": "Egypt",
+                  },
+                  Object {
+                    "code": "SV",
+                    "dial_code": "+503",
+                    "flag": "🇸🇻",
+                    "name": "El Salvador",
+                  },
+                  Object {
+                    "code": "GQ",
+                    "dial_code": "+240",
+                    "flag": "🇬🇶",
+                    "name": "Equatorial Guinea",
+                  },
+                  Object {
+                    "code": "ER",
+                    "dial_code": "+291",
+                    "flag": "🇪🇷",
+                    "name": "Eritrea",
+                  },
+                  Object {
+                    "code": "EE",
+                    "dial_code": "+372",
+                    "flag": "🇪🇪",
+                    "name": "Estonia",
+                  },
+                  Object {
+                    "code": "ET",
+                    "dial_code": "+251",
+                    "flag": "🇪🇹",
+                    "name": "Ethiopia",
+                  },
+                  Object {
+                    "code": "FK",
+                    "dial_code": "+500",
+                    "flag": "🇫🇰",
+                    "name": "Falkland Islands (Malvinas)",
+                  },
+                  Object {
+                    "code": "FO",
+                    "dial_code": "+298",
+                    "flag": "🇫🇴",
+                    "name": "Faroe Islands",
+                  },
+                  Object {
+                    "code": "FJ",
+                    "dial_code": "+679",
+                    "flag": "🇫🇯",
+                    "name": "Fiji",
+                  },
+                  Object {
+                    "code": "FI",
+                    "dial_code": "+358",
+                    "flag": "🇫🇮",
+                    "name": "Finland",
+                  },
+                  Object {
+                    "code": "FR",
+                    "dial_code": "+33",
+                    "flag": "🇫🇷",
+                    "name": "France",
+                  },
+                  Object {
+                    "code": "GF",
+                    "dial_code": "+594",
+                    "flag": "🇬🇫",
+                    "name": "French Guiana",
+                  },
+                  Object {
+                    "code": "PF",
+                    "dial_code": "+689",
+                    "flag": "🇵🇫",
+                    "name": "French Polynesia",
+                  },
+                  Object {
+                    "code": "TF",
+                    "dial_code": "+262",
+                    "flag": "🇹🇫",
+                    "name": "French Southern Territories",
+                  },
+                  Object {
+                    "code": "GA",
+                    "dial_code": "+241",
+                    "flag": "🇬🇦",
+                    "name": "Gabon",
+                  },
+                  Object {
+                    "code": "GM",
+                    "dial_code": "+220",
+                    "flag": "🇬🇲",
+                    "name": "Gambia",
+                  },
+                  Object {
+                    "code": "GE",
+                    "dial_code": "+995",
+                    "flag": "🇬🇪",
+                    "name": "Georgia",
+                  },
+                  Object {
+                    "code": "DE",
+                    "dial_code": "+49",
+                    "flag": "🇩🇪",
+                    "name": "Germany",
+                  },
+                  Object {
+                    "code": "GH",
+                    "dial_code": "+233",
+                    "flag": "🇬🇭",
+                    "name": "Ghana",
+                  },
+                  Object {
+                    "code": "GI",
+                    "dial_code": "+350",
+                    "flag": "🇬🇮",
+                    "name": "Gibraltar",
+                  },
+                  Object {
+                    "code": "GR",
+                    "dial_code": "+30",
+                    "flag": "🇬🇷",
+                    "name": "Greece",
+                  },
+                  Object {
+                    "code": "GL",
+                    "dial_code": "+299",
+                    "flag": "🇬🇱",
+                    "name": "Greenland",
+                  },
+                  Object {
+                    "code": "GD",
+                    "dial_code": "+1473",
+                    "flag": "🇬🇩",
+                    "name": "Grenada",
+                  },
+                  Object {
+                    "code": "GP",
+                    "dial_code": "+590",
+                    "flag": "🇬🇵",
+                    "name": "Guadeloupe",
+                  },
+                  Object {
+                    "code": "GU",
+                    "dial_code": "+1671",
+                    "flag": "🇬🇺",
+                    "name": "Guam",
+                  },
+                  Object {
+                    "code": "GT",
+                    "dial_code": "+502",
+                    "flag": "🇬🇹",
+                    "name": "Guatemala",
+                  },
+                  Object {
+                    "code": "GG",
+                    "dial_code": "+44",
+                    "flag": "🇬🇬",
+                    "name": "Guernsey",
+                  },
+                  Object {
+                    "code": "GN",
+                    "dial_code": "+224",
+                    "flag": "🇬🇳",
+                    "name": "Guinea",
+                  },
+                  Object {
+                    "code": "GW",
+                    "dial_code": "+245",
+                    "flag": "🇬🇼",
+                    "name": "Guinea-Bissau",
+                  },
+                  Object {
+                    "code": "GY",
+                    "dial_code": "+592",
+                    "flag": "🇬🇾",
+                    "name": "Guyana",
+                  },
+                  Object {
+                    "code": "HT",
+                    "dial_code": "+509",
+                    "flag": "🇭🇹",
+                    "name": "Haiti",
+                  },
+                  Object {
+                    "code": "HM",
+                    "dial_code": "+672",
+                    "flag": "🇭🇲",
+                    "name": "Heard Island and Mcdonald Islands",
+                  },
+                  Object {
+                    "code": "VA",
+                    "dial_code": "+379",
+                    "flag": "🇻🇦",
+                    "name": "Holy See (Vatican City State)",
+                  },
+                  Object {
+                    "code": "HN",
+                    "dial_code": "+504",
+                    "flag": "🇭🇳",
+                    "name": "Honduras",
+                  },
+                  Object {
+                    "code": "HK",
+                    "dial_code": "+852",
+                    "flag": "🇭🇰",
+                    "name": "Hong Kong",
+                  },
+                  Object {
+                    "code": "HU",
+                    "dial_code": "+36",
+                    "flag": "🇭🇺",
+                    "name": "Hungary",
+                  },
+                  Object {
+                    "code": "IS",
+                    "dial_code": "+354",
+                    "flag": "🇮🇸",
+                    "name": "Iceland",
+                  },
+                  Object {
+                    "code": "IN",
+                    "dial_code": "+91",
+                    "flag": "🇮🇳",
+                    "name": "India",
+                  },
+                  Object {
+                    "code": "ID",
+                    "dial_code": "+62",
+                    "flag": "🇮🇩",
+                    "name": "Indonesia",
+                  },
+                  Object {
+                    "code": "IR",
+                    "dial_code": "+98",
+                    "flag": "🇮🇷",
+                    "name": "Iran, Islamic Republic of Persian Gulf",
+                  },
+                  Object {
+                    "code": "IQ",
+                    "dial_code": "+964",
+                    "flag": "🇮🇶",
+                    "name": "Iraq",
+                  },
+                  Object {
+                    "code": "IE",
+                    "dial_code": "+353",
+                    "flag": "🇮🇪",
+                    "name": "Ireland",
+                  },
+                  Object {
+                    "code": "IM",
+                    "dial_code": "+44",
+                    "flag": "🇮🇲",
+                    "name": "Isle of Man",
+                  },
+                  Object {
+                    "code": "IL",
+                    "dial_code": "+972",
+                    "flag": "🇮🇱",
+                    "name": "Israel",
+                  },
+                  Object {
+                    "code": "IT",
+                    "dial_code": "+39",
+                    "flag": "🇮🇹",
+                    "name": "Italy",
+                  },
+                  Object {
+                    "code": "JM",
+                    "dial_code": "+1876",
+                    "flag": "🇯🇲",
+                    "name": "Jamaica",
+                  },
+                  Object {
+                    "code": "JP",
+                    "dial_code": "+81",
+                    "flag": "🇯🇵",
+                    "name": "Japan",
+                  },
+                  Object {
+                    "code": "JE",
+                    "dial_code": "+44",
+                    "flag": "🇯🇪",
+                    "name": "Jersey",
+                  },
+                  Object {
+                    "code": "JO",
+                    "dial_code": "+962",
+                    "flag": "🇯🇴",
+                    "name": "Jordan",
+                  },
+                  Object {
+                    "code": "KZ",
+                    "dial_code": "+7",
+                    "flag": "🇰🇿",
+                    "name": "Kazakhstan",
+                  },
+                  Object {
+                    "code": "KE",
+                    "dial_code": "+254",
+                    "flag": "🇰🇪",
+                    "name": "Kenya",
+                  },
+                  Object {
+                    "code": "KI",
+                    "dial_code": "+686",
+                    "flag": "🇰🇮",
+                    "name": "Kiribati",
+                  },
+                  Object {
+                    "code": "KP",
+                    "dial_code": "+850",
+                    "flag": "🇰🇵",
+                    "name": "Korea, Democratic People's Republic of Korea",
+                  },
+                  Object {
+                    "code": "KR",
+                    "dial_code": "+82",
+                    "flag": "🇰🇷",
+                    "name": "Korea, Republic of South Korea",
+                  },
+                  Object {
+                    "code": "XK",
+                    "dial_code": "+383",
+                    "flag": "🇽🇰",
+                    "name": "Kosovo",
+                  },
+                  Object {
+                    "code": "KW",
+                    "dial_code": "+965",
+                    "flag": "🇰🇼",
+                    "name": "Kuwait",
+                  },
+                  Object {
+                    "code": "KG",
+                    "dial_code": "+996",
+                    "flag": "🇰🇬",
+                    "name": "Kyrgyzstan",
+                  },
+                  Object {
+                    "code": "LA",
+                    "dial_code": "+856",
+                    "flag": "🇱🇦",
+                    "name": "Laos",
+                  },
+                  Object {
+                    "code": "LV",
+                    "dial_code": "+371",
+                    "flag": "🇱🇻",
+                    "name": "Latvia",
+                  },
+                  Object {
+                    "code": "LB",
+                    "dial_code": "+961",
+                    "flag": "🇱🇧",
+                    "name": "Lebanon",
+                  },
+                  Object {
+                    "code": "LS",
+                    "dial_code": "+266",
+                    "flag": "🇱🇸",
+                    "name": "Lesotho",
+                  },
+                  Object {
+                    "code": "LR",
+                    "dial_code": "+231",
+                    "flag": "🇱🇷",
+                    "name": "Liberia",
+                  },
+                  Object {
+                    "code": "LY",
+                    "dial_code": "+218",
+                    "flag": "🇱🇾",
+                    "name": "Libyan Arab Jamahiriya",
+                  },
+                  Object {
+                    "code": "LI",
+                    "dial_code": "+423",
+                    "flag": "🇱🇮",
+                    "name": "Liechtenstein",
+                  },
+                  Object {
+                    "code": "LT",
+                    "dial_code": "+370",
+                    "flag": "🇱🇹",
+                    "name": "Lithuania",
+                  },
+                  Object {
+                    "code": "LU",
+                    "dial_code": "+352",
+                    "flag": "🇱🇺",
+                    "name": "Luxembourg",
+                  },
+                  Object {
+                    "code": "MO",
+                    "dial_code": "+853",
+                    "flag": "🇲🇴",
+                    "name": "Macao",
+                  },
+                  Object {
+                    "code": "MK",
+                    "dial_code": "+389",
+                    "flag": "🇲🇰",
+                    "name": "Macedonia",
+                  },
+                  Object {
+                    "code": "MG",
+                    "dial_code": "+261",
+                    "flag": "🇲🇬",
+                    "name": "Madagascar",
+                  },
+                  Object {
+                    "code": "MW",
+                    "dial_code": "+265",
+                    "flag": "🇲🇼",
+                    "name": "Malawi",
+                  },
+                  Object {
+                    "code": "MY",
+                    "dial_code": "+60",
+                    "flag": "🇲🇾",
+                    "name": "Malaysia",
+                  },
+                  Object {
+                    "code": "MV",
+                    "dial_code": "+960",
+                    "flag": "🇲🇻",
+                    "name": "Maldives",
+                  },
+                  Object {
+                    "code": "ML",
+                    "dial_code": "+223",
+                    "flag": "🇲🇱",
+                    "name": "Mali",
+                  },
+                  Object {
+                    "code": "MT",
+                    "dial_code": "+356",
+                    "flag": "🇲🇹",
+                    "name": "Malta",
+                  },
+                  Object {
+                    "code": "MH",
+                    "dial_code": "+692",
+                    "flag": "🇲🇭",
+                    "name": "Marshall Islands",
+                  },
+                  Object {
+                    "code": "MQ",
+                    "dial_code": "+596",
+                    "flag": "🇲🇶",
+                    "name": "Martinique",
+                  },
+                  Object {
+                    "code": "MR",
+                    "dial_code": "+222",
+                    "flag": "🇲🇷",
+                    "name": "Mauritania",
+                  },
+                  Object {
+                    "code": "MU",
+                    "dial_code": "+230",
+                    "flag": "🇲🇺",
+                    "name": "Mauritius",
+                  },
+                  Object {
+                    "code": "YT",
+                    "dial_code": "+262",
+                    "flag": "🇾🇹",
+                    "name": "Mayotte",
+                  },
+                  Object {
+                    "code": "MX",
+                    "dial_code": "+52",
+                    "flag": "🇲🇽",
+                    "name": "Mexico",
+                  },
+                  Object {
+                    "code": "FM",
+                    "dial_code": "+691",
+                    "flag": "🇫🇲",
+                    "name": "Micronesia, Federated States of Micronesia",
+                  },
+                  Object {
+                    "code": "MD",
+                    "dial_code": "+373",
+                    "flag": "🇲🇩",
+                    "name": "Moldova",
+                  },
+                  Object {
+                    "code": "MC",
+                    "dial_code": "+377",
+                    "flag": "🇲🇨",
+                    "name": "Monaco",
+                  },
+                  Object {
+                    "code": "MN",
+                    "dial_code": "+976",
+                    "flag": "🇲🇳",
+                    "name": "Mongolia",
+                  },
+                  Object {
+                    "code": "ME",
+                    "dial_code": "+382",
+                    "flag": "🇲🇪",
+                    "name": "Montenegro",
+                  },
+                  Object {
+                    "code": "MS",
+                    "dial_code": "+1664",
+                    "flag": "🇲🇸",
+                    "name": "Montserrat",
+                  },
+                  Object {
+                    "code": "MA",
+                    "dial_code": "+212",
+                    "flag": "🇲🇦",
+                    "name": "Morocco",
+                  },
+                  Object {
+                    "code": "MZ",
+                    "dial_code": "+258",
+                    "flag": "🇲🇿",
+                    "name": "Mozambique",
+                  },
+                  Object {
+                    "code": "MM",
+                    "dial_code": "+95",
+                    "flag": "🇲🇲",
+                    "name": "Myanmar",
+                  },
+                  Object {
+                    "code": "NA",
+                    "dial_code": "+264",
+                    "flag": "🇳🇦",
+                    "name": "Namibia",
+                  },
+                  Object {
+                    "code": "NR",
+                    "dial_code": "+674",
+                    "flag": "🇳🇷",
+                    "name": "Nauru",
+                  },
+                  Object {
+                    "code": "NP",
+                    "dial_code": "+977",
+                    "flag": "🇳🇵",
+                    "name": "Nepal",
+                  },
+                  Object {
+                    "code": "NL",
+                    "dial_code": "+31",
+                    "flag": "🇳🇱",
+                    "name": "Netherlands",
+                  },
+                  Object {
+                    "code": "AN",
+                    "dial_code": "+599",
+                    "flag": "",
+                    "name": "Netherlands Antilles",
+                  },
+                  Object {
+                    "code": "NC",
+                    "dial_code": "+687",
+                    "flag": "🇳🇨",
+                    "name": "New Caledonia",
+                  },
+                  Object {
+                    "code": "NZ",
+                    "dial_code": "+64",
+                    "flag": "🇳🇿",
+                    "name": "New Zealand",
+                  },
+                  Object {
+                    "code": "NI",
+                    "dial_code": "+505",
+                    "flag": "🇳🇮",
+                    "name": "Nicaragua",
+                  },
+                  Object {
+                    "code": "NE",
+                    "dial_code": "+227",
+                    "flag": "🇳🇪",
+                    "name": "Niger",
+                  },
+                  Object {
+                    "code": "NG",
+                    "dial_code": "+234",
+                    "flag": "🇳🇬",
+                    "name": "Nigeria",
+                  },
+                  Object {
+                    "code": "NU",
+                    "dial_code": "+683",
+                    "flag": "🇳🇺",
+                    "name": "Niue",
+                  },
+                  Object {
+                    "code": "NF",
+                    "dial_code": "+672",
+                    "flag": "🇳🇫",
+                    "name": "Norfolk Island",
+                  },
+                  Object {
+                    "code": "MP",
+                    "dial_code": "+1670",
+                    "flag": "🇲🇵",
+                    "name": "Northern Mariana Islands",
+                  },
+                  Object {
+                    "code": "NO",
+                    "dial_code": "+47",
+                    "flag": "🇳🇴",
+                    "name": "Norway",
+                  },
+                  Object {
+                    "code": "OM",
+                    "dial_code": "+968",
+                    "flag": "🇴🇲",
+                    "name": "Oman",
+                  },
+                  Object {
+                    "code": "PK",
+                    "dial_code": "+92",
+                    "flag": "🇵🇰",
+                    "name": "Pakistan",
+                  },
+                  Object {
+                    "code": "PW",
+                    "dial_code": "+680",
+                    "flag": "🇵🇼",
+                    "name": "Palau",
+                  },
+                  Object {
+                    "code": "PS",
+                    "dial_code": "+970",
+                    "flag": "🇵🇸",
+                    "name": "Palestinian Territory, Occupied",
+                  },
+                  Object {
+                    "code": "PA",
+                    "dial_code": "+507",
+                    "flag": "🇵🇦",
+                    "name": "Panama",
+                  },
+                  Object {
+                    "code": "PG",
+                    "dial_code": "+675",
+                    "flag": "🇵🇬",
+                    "name": "Papua New Guinea",
+                  },
+                  Object {
+                    "code": "PY",
+                    "dial_code": "+595",
+                    "flag": "🇵🇾",
+                    "name": "Paraguay",
+                  },
+                  Object {
+                    "code": "PE",
+                    "dial_code": "+51",
+                    "flag": "🇵🇪",
+                    "name": "Peru",
+                  },
+                  Object {
+                    "code": "PH",
+                    "dial_code": "+63",
+                    "flag": "🇵🇭",
+                    "name": "Philippines",
+                  },
+                  Object {
+                    "code": "PN",
+                    "dial_code": "+64",
+                    "flag": "🇵🇳",
+                    "name": "Pitcairn",
+                  },
+                  Object {
+                    "code": "PL",
+                    "dial_code": "+48",
+                    "flag": "🇵🇱",
+                    "name": "Poland",
+                  },
+                  Object {
+                    "code": "PT",
+                    "dial_code": "+351",
+                    "flag": "🇵🇹",
+                    "name": "Portugal",
+                  },
+                  Object {
+                    "code": "PR",
+                    "dial_code": "+1939",
+                    "flag": "🇵🇷",
+                    "name": "Puerto Rico",
+                  },
+                  Object {
+                    "code": "QA",
+                    "dial_code": "+974",
+                    "flag": "🇶🇦",
+                    "name": "Qatar",
+                  },
+                  Object {
+                    "code": "RO",
+                    "dial_code": "+40",
+                    "flag": "🇷🇴",
+                    "name": "Romania",
+                  },
+                  Object {
+                    "code": "RU",
+                    "dial_code": "+7",
+                    "flag": "🇷🇺",
+                    "name": "Russia",
+                  },
+                  Object {
+                    "code": "RW",
+                    "dial_code": "+250",
+                    "flag": "🇷🇼",
+                    "name": "Rwanda",
+                  },
+                  Object {
+                    "code": "RE",
+                    "dial_code": "+262",
+                    "flag": "🇷🇪",
+                    "name": "Reunion",
+                  },
+                  Object {
+                    "code": "BL",
+                    "dial_code": "+590",
+                    "flag": "🇧🇱",
+                    "name": "Saint Barthelemy",
+                  },
+                  Object {
+                    "code": "SH",
+                    "dial_code": "+290",
+                    "flag": "🇸🇭",
+                    "name": "Saint Helena, Ascension and Tristan Da Cunha",
+                  },
+                  Object {
+                    "code": "KN",
+                    "dial_code": "+1869",
+                    "flag": "🇰🇳",
+                    "name": "Saint Kitts and Nevis",
+                  },
+                  Object {
+                    "code": "LC",
+                    "dial_code": "+1758",
+                    "flag": "🇱🇨",
+                    "name": "Saint Lucia",
+                  },
+                  Object {
+                    "code": "MF",
+                    "dial_code": "+590",
+                    "flag": "🇲🇫",
+                    "name": "Saint Martin",
+                  },
+                  Object {
+                    "code": "PM",
+                    "dial_code": "+508",
+                    "flag": "🇵🇲",
+                    "name": "Saint Pierre and Miquelon",
+                  },
+                  Object {
+                    "code": "VC",
+                    "dial_code": "+1784",
+                    "flag": "🇻🇨",
+                    "name": "Saint Vincent and the Grenadines",
+                  },
+                  Object {
+                    "code": "WS",
+                    "dial_code": "+685",
+                    "flag": "🇼🇸",
+                    "name": "Samoa",
+                  },
+                  Object {
+                    "code": "SM",
+                    "dial_code": "+378",
+                    "flag": "🇸🇲",
+                    "name": "San Marino",
+                  },
+                  Object {
+                    "code": "ST",
+                    "dial_code": "+239",
+                    "flag": "🇸🇹",
+                    "name": "Sao Tome and Principe",
+                  },
+                  Object {
+                    "code": "SA",
+                    "dial_code": "+966",
+                    "flag": "🇸🇦",
+                    "name": "Saudi Arabia",
+                  },
+                  Object {
+                    "code": "SN",
+                    "dial_code": "+221",
+                    "flag": "🇸🇳",
+                    "name": "Senegal",
+                  },
+                  Object {
+                    "code": "RS",
+                    "dial_code": "+381",
+                    "flag": "🇷🇸",
+                    "name": "Serbia",
+                  },
+                  Object {
+                    "code": "SC",
+                    "dial_code": "+248",
+                    "flag": "🇸🇨",
+                    "name": "Seychelles",
+                  },
+                  Object {
+                    "code": "SL",
+                    "dial_code": "+232",
+                    "flag": "🇸🇱",
+                    "name": "Sierra Leone",
+                  },
+                  Object {
+                    "code": "SG",
+                    "dial_code": "+65",
+                    "flag": "🇸🇬",
+                    "name": "Singapore",
+                  },
+                  Object {
+                    "code": "SK",
+                    "dial_code": "+421",
+                    "flag": "🇸🇰",
+                    "name": "Slovakia",
+                  },
+                  Object {
+                    "code": "SI",
+                    "dial_code": "+386",
+                    "flag": "🇸🇮",
+                    "name": "Slovenia",
+                  },
+                  Object {
+                    "code": "SB",
+                    "dial_code": "+677",
+                    "flag": "🇸🇧",
+                    "name": "Solomon Islands",
+                  },
+                  Object {
+                    "code": "SO",
+                    "dial_code": "+252",
+                    "flag": "🇸🇴",
+                    "name": "Somalia",
+                  },
+                  Object {
+                    "code": "ZA",
+                    "dial_code": "+27",
+                    "flag": "🇿🇦",
+                    "name": "South Africa",
+                  },
+                  Object {
+                    "code": "SS",
+                    "dial_code": "+211",
+                    "flag": "🇸🇸",
+                    "name": "South Sudan",
+                  },
+                  Object {
+                    "code": "GS",
+                    "dial_code": "+500",
+                    "flag": "🇬🇸",
+                    "name": "South Georgia and the South Sandwich Islands",
+                  },
+                  Object {
+                    "code": "ES",
+                    "dial_code": "+34",
+                    "flag": "🇪🇸",
+                    "name": "Spain",
+                  },
+                  Object {
+                    "code": "LK",
+                    "dial_code": "+94",
+                    "flag": "🇱🇰",
+                    "name": "Sri Lanka",
+                  },
+                  Object {
+                    "code": "SD",
+                    "dial_code": "+249",
+                    "flag": "🇸🇩",
+                    "name": "Sudan",
+                  },
+                  Object {
+                    "code": "SR",
+                    "dial_code": "+597",
+                    "flag": "🇸🇷",
+                    "name": "Suriname",
+                  },
+                  Object {
+                    "code": "SJ",
+                    "dial_code": "+47",
+                    "flag": "🇸🇯",
+                    "name": "Svalbard and Jan Mayen",
+                  },
+                  Object {
+                    "code": "SZ",
+                    "dial_code": "+268",
+                    "flag": "🇸🇿",
+                    "name": "Swaziland",
+                  },
+                  Object {
+                    "code": "SE",
+                    "dial_code": "+46",
+                    "flag": "🇸🇪",
+                    "name": "Sweden",
+                  },
+                  Object {
+                    "code": "CH",
+                    "dial_code": "+41",
+                    "flag": "🇨🇭",
+                    "name": "Switzerland",
+                  },
+                  Object {
+                    "code": "SY",
+                    "dial_code": "+963",
+                    "flag": "🇸🇾",
+                    "name": "Syrian Arab Republic",
+                  },
+                  Object {
+                    "code": "TW",
+                    "dial_code": "+886",
+                    "flag": "🇹🇼",
+                    "name": "Taiwan",
+                  },
+                  Object {
+                    "code": "TJ",
+                    "dial_code": "+992",
+                    "flag": "🇹🇯",
+                    "name": "Tajikistan",
+                  },
+                  Object {
+                    "code": "TZ",
+                    "dial_code": "+255",
+                    "flag": "🇹🇿",
+                    "name": "Tanzania, United Republic of Tanzania",
+                  },
+                  Object {
+                    "code": "TH",
+                    "dial_code": "+66",
+                    "flag": "🇹🇭",
+                    "name": "Thailand",
+                  },
+                  Object {
+                    "code": "TL",
+                    "dial_code": "+670",
+                    "flag": "🇹🇱",
+                    "name": "Timor-Leste",
+                  },
+                  Object {
+                    "code": "TG",
+                    "dial_code": "+228",
+                    "flag": "🇹🇬",
+                    "name": "Togo",
+                  },
+                  Object {
+                    "code": "TK",
+                    "dial_code": "+690",
+                    "flag": "🇹🇰",
+                    "name": "Tokelau",
+                  },
+                  Object {
+                    "code": "TO",
+                    "dial_code": "+676",
+                    "flag": "🇹🇴",
+                    "name": "Tonga",
+                  },
+                  Object {
+                    "code": "TT",
+                    "dial_code": "+1868",
+                    "flag": "🇹🇹",
+                    "name": "Trinidad and Tobago",
+                  },
+                  Object {
+                    "code": "TN",
+                    "dial_code": "+216",
+                    "flag": "🇹🇳",
+                    "name": "Tunisia",
+                  },
+                  Object {
+                    "code": "TR",
+                    "dial_code": "+90",
+                    "flag": "🇹🇷",
+                    "name": "Turkey",
+                  },
+                  Object {
+                    "code": "TM",
+                    "dial_code": "+993",
+                    "flag": "🇹🇲",
+                    "name": "Turkmenistan",
+                  },
+                  Object {
+                    "code": "TC",
+                    "dial_code": "+1649",
+                    "flag": "🇹🇨",
+                    "name": "Turks and Caicos Islands",
+                  },
+                  Object {
+                    "code": "TV",
+                    "dial_code": "+688",
+                    "flag": "🇹🇻",
+                    "name": "Tuvalu",
+                  },
+                  Object {
+                    "code": "UG",
+                    "dial_code": "+256",
+                    "flag": "🇺🇬",
+                    "name": "Uganda",
+                  },
+                  Object {
+                    "code": "UA",
+                    "dial_code": "+380",
+                    "flag": "🇺🇦",
+                    "name": "Ukraine",
+                  },
+                  Object {
+                    "code": "AE",
+                    "dial_code": "+971",
+                    "flag": "🇦🇪",
+                    "name": "United Arab Emirates",
+                  },
+                  Object {
+                    "code": "GB",
+                    "dial_code": "+44",
+                    "flag": "🇬🇧",
+                    "name": "United Kingdom",
+                  },
+                  Object {
+                    "code": "US",
+                    "dial_code": "+1",
+                    "flag": "🇺🇸",
+                    "name": "United States",
+                  },
+                  Object {
+                    "code": "UY",
+                    "dial_code": "+598",
+                    "flag": "🇺🇾",
+                    "name": "Uruguay",
+                  },
+                  Object {
+                    "code": "UZ",
+                    "dial_code": "+998",
+                    "flag": "🇺🇿",
+                    "name": "Uzbekistan",
+                  },
+                  Object {
+                    "code": "VU",
+                    "dial_code": "+678",
+                    "flag": "🇻🇺",
+                    "name": "Vanuatu",
+                  },
+                  Object {
+                    "code": "VE",
+                    "dial_code": "+58",
+                    "flag": "🇻🇪",
+                    "name": "Venezuela, Bolivarian Republic of Venezuela",
+                  },
+                  Object {
+                    "code": "VN",
+                    "dial_code": "+84",
+                    "flag": "🇻🇳",
+                    "name": "Vietnam",
+                  },
+                  Object {
+                    "code": "VG",
+                    "dial_code": "+1284",
+                    "flag": "🇻🇬",
+                    "name": "Virgin Islands, British",
+                  },
+                  Object {
+                    "code": "VI",
+                    "dial_code": "+1340",
+                    "flag": "🇻🇮",
+                    "name": "Virgin Islands, U.S.",
+                  },
+                  Object {
+                    "code": "WF",
+                    "dial_code": "+681",
+                    "flag": "🇼🇫",
+                    "name": "Wallis and Futuna",
+                  },
+                  Object {
+                    "code": "YE",
+                    "dial_code": "+967",
+                    "flag": "🇾🇪",
+                    "name": "Yemen",
+                  },
+                  Object {
+                    "code": "ZM",
+                    "dial_code": "+260",
+                    "flag": "🇿🇲",
+                    "name": "Zambia",
+                  },
+                  Object {
+                    "code": "ZW",
+                    "dial_code": "+263",
+                    "flag": "🇿🇼",
+                    "name": "Zimbabwe",
+                  },
+                ]
+              }
+              disableVirtualization={false}
+              getItem={[Function]}
+              getItemCount={[Function]}
+              horizontal={false}
+              initialNumToRender={10}
+              keyExtractor={[Function]}
+              maxToRenderPerBatch={10}
+              numColumns={1}
+              onContentSizeChange={[Function]}
+              onEndReachedThreshold={2}
+              onLayout={[Function]}
+              onMomentumScrollEnd={[Function]}
+              onScroll={[Function]}
+              onScrollBeginDrag={[Function]}
+              onScrollEndDrag={[Function]}
+              removeClippedSubviews={false}
+              renderItem={[Function]}
+              scrollEventThrottle={50}
+              stickyHeaderIndices={Array []}
+              updateCellsBatchingPeriod={50}
+              viewabilityConfigCallbackPairs={Array []}
+              windowSize={21}
+            >
+              <View>
+                <View
+                  onLayout={[Function]}
+                  style={null}
+                >
+                  <View
+                    accessible={true}
+                    focusable={true}
+                    onClick={[Function]}
+                    onResponderGrant={[Function]}
+                    onResponderMove={[Function]}
+                    onResponderRelease={[Function]}
+                    onResponderTerminate={[Function]}
+                    onResponderTerminationRequest={[Function]}
+                    onStartShouldSetResponder={[Function]}
+                    style={
+                      Array [
+                        Object {
+                          "backgroundColor": "white",
+                          "borderTopColor": "black",
+                          "borderTopWidth": 1,
+                          "flex": 1,
+                          "padding": 12,
+                        },
+                        Object {
+                          "alignItems": "center",
+                          "flexDirection": "row",
+                          "justifyContent": "space-between",
+                        },
+                      ]
+                    }
+                  >
+                    <Text
+                      style={
+                        Object {
+                          "fontSize": 45,
+                        }
+                      }
+                    >
+                      🇦🇫
+                    </Text>
+                    <Text
+                      style={
+                        Object {
+                          "color": "black",
+                          "fontSize": 20,
+                        }
+                      }
+                    >
+                      Afghanistan
+                       
+                      (
+                      +93
+                      )
+                    </Text>
+                  </View>
+                </View>
+                <View
+                  onLayout={[Function]}
+                  style={null}
+                >
+                  <View
+                    accessible={true}
+                    focusable={true}
+                    onClick={[Function]}
+                    onResponderGrant={[Function]}
+                    onResponderMove={[Function]}
+                    onResponderRelease={[Function]}
+                    onResponderTerminate={[Function]}
+                    onResponderTerminationRequest={[Function]}
+                    onStartShouldSetResponder={[Function]}
+                    style={
+                      Array [
+                        Object {
+                          "backgroundColor": "white",
+                          "borderTopColor": "black",
+                          "borderTopWidth": 1,
+                          "flex": 1,
+                          "padding": 12,
+                        },
+                        Object {
+                          "alignItems": "center",
+                          "flexDirection": "row",
+                          "justifyContent": "space-between",
+                        },
+                      ]
+                    }
+                  >
+                    <Text
+                      style={
+                        Object {
+                          "fontSize": 45,
+                        }
+                      }
+                    >
+                      🇦🇽
+                    </Text>
+                    <Text
+                      style={
+                        Object {
+                          "color": "black",
+                          "fontSize": 20,
+                        }
+                      }
+                    >
+                      Åland Islands
+                       
+                      (
+                      +358
+                      )
+                    </Text>
+                  </View>
+                </View>
+                <View
+                  onLayout={[Function]}
+                  style={null}
+                >
+                  <View
+                    accessible={true}
+                    focusable={true}
+                    onClick={[Function]}
+                    onResponderGrant={[Function]}
+                    onResponderMove={[Function]}
+                    onResponderRelease={[Function]}
+                    onResponderTerminate={[Function]}
+                    onResponderTerminationRequest={[Function]}
+                    onStartShouldSetResponder={[Function]}
+                    style={
+                      Array [
+                        Object {
+                          "backgroundColor": "white",
+                          "borderTopColor": "black",
+                          "borderTopWidth": 1,
+                          "flex": 1,
+                          "padding": 12,
+                        },
+                        Object {
+                          "alignItems": "center",
+                          "flexDirection": "row",
+                          "justifyContent": "space-between",
+                        },
+                      ]
+                    }
+                  >
+                    <Text
+                      style={
+                        Object {
+                          "fontSize": 45,
+                        }
+                      }
+                    >
+                      🇦🇱
+                    </Text>
+                    <Text
+                      style={
+                        Object {
+                          "color": "black",
+                          "fontSize": 20,
+                        }
+                      }
+                    >
+                      Albania
+                       
+                      (
+                      +355
+                      )
+                    </Text>
+                  </View>
+                </View>
+                <View
+                  onLayout={[Function]}
+                  style={null}
+                >
+                  <View
+                    accessible={true}
+                    focusable={true}
+                    onClick={[Function]}
+                    onResponderGrant={[Function]}
+                    onResponderMove={[Function]}
+                    onResponderRelease={[Function]}
+                    onResponderTerminate={[Function]}
+                    onResponderTerminationRequest={[Function]}
+                    onStartShouldSetResponder={[Function]}
+                    style={
+                      Array [
+                        Object {
+                          "backgroundColor": "white",
+                          "borderTopColor": "black",
+                          "borderTopWidth": 1,
+                          "flex": 1,
+                          "padding": 12,
+                        },
+                        Object {
+                          "alignItems": "center",
+                          "flexDirection": "row",
+                          "justifyContent": "space-between",
+                        },
+                      ]
+                    }
+                  >
+                    <Text
+                      style={
+                        Object {
+                          "fontSize": 45,
+                        }
+                      }
+                    >
+                      🇩🇿
+                    </Text>
+                    <Text
+                      style={
+                        Object {
+                          "color": "black",
+                          "fontSize": 20,
+                        }
+                      }
+                    >
+                      Algeria
+                       
+                      (
+                      +213
+                      )
+                    </Text>
+                  </View>
+                </View>
+                <View
+                  onLayout={[Function]}
+                  style={null}
+                >
+                  <View
+                    accessible={true}
+                    focusable={true}
+                    onClick={[Function]}
+                    onResponderGrant={[Function]}
+                    onResponderMove={[Function]}
+                    onResponderRelease={[Function]}
+                    onResponderTerminate={[Function]}
+                    onResponderTerminationRequest={[Function]}
+                    onStartShouldSetResponder={[Function]}
+                    style={
+                      Array [
+                        Object {
+                          "backgroundColor": "white",
+                          "borderTopColor": "black",
+                          "borderTopWidth": 1,
+                          "flex": 1,
+                          "padding": 12,
+                        },
+                        Object {
+                          "alignItems": "center",
+                          "flexDirection": "row",
+                          "justifyContent": "space-between",
+                        },
+                      ]
+                    }
+                  >
+                    <Text
+                      style={
+                        Object {
+                          "fontSize": 45,
+                        }
+                      }
+                    >
+                      🇦🇸
+                    </Text>
+                    <Text
+                      style={
+                        Object {
+                          "color": "black",
+                          "fontSize": 20,
+                        }
+                      }
+                    >
+                      American Samoa
+                       
+                      (
+                      +1684
+                      )
+                    </Text>
+                  </View>
+                </View>
+                <View
+                  onLayout={[Function]}
+                  style={null}
+                >
+                  <View
+                    accessible={true}
+                    focusable={true}
+                    onClick={[Function]}
+                    onResponderGrant={[Function]}
+                    onResponderMove={[Function]}
+                    onResponderRelease={[Function]}
+                    onResponderTerminate={[Function]}
+                    onResponderTerminationRequest={[Function]}
+                    onStartShouldSetResponder={[Function]}
+                    style={
+                      Array [
+                        Object {
+                          "backgroundColor": "white",
+                          "borderTopColor": "black",
+                          "borderTopWidth": 1,
+                          "flex": 1,
+                          "padding": 12,
+                        },
+                        Object {
+                          "alignItems": "center",
+                          "flexDirection": "row",
+                          "justifyContent": "space-between",
+                        },
+                      ]
+                    }
+                  >
+                    <Text
+                      style={
+                        Object {
+                          "fontSize": 45,
+                        }
+                      }
+                    >
+                      🇦🇩
+                    </Text>
+                    <Text
+                      style={
+                        Object {
+                          "color": "black",
+                          "fontSize": 20,
+                        }
+                      }
+                    >
+                      Andorra
+                       
+                      (
+                      +376
+                      )
+                    </Text>
+                  </View>
+                </View>
+                <View
+                  onLayout={[Function]}
+                  style={null}
+                >
+                  <View
+                    accessible={true}
+                    focusable={true}
+                    onClick={[Function]}
+                    onResponderGrant={[Function]}
+                    onResponderMove={[Function]}
+                    onResponderRelease={[Function]}
+                    onResponderTerminate={[Function]}
+                    onResponderTerminationRequest={[Function]}
+                    onStartShouldSetResponder={[Function]}
+                    style={
+                      Array [
+                        Object {
+                          "backgroundColor": "white",
+                          "borderTopColor": "black",
+                          "borderTopWidth": 1,
+                          "flex": 1,
+                          "padding": 12,
+                        },
+                        Object {
+                          "alignItems": "center",
+                          "flexDirection": "row",
+                          "justifyContent": "space-between",
+                        },
+                      ]
+                    }
+                  >
+                    <Text
+                      style={
+                        Object {
+                          "fontSize": 45,
+                        }
+                      }
+                    >
+                      🇦🇴
+                    </Text>
+                    <Text
+                      style={
+                        Object {
+                          "color": "black",
+                          "fontSize": 20,
+                        }
+                      }
+                    >
+                      Angola
+                       
+                      (
+                      +244
+                      )
+                    </Text>
+                  </View>
+                </View>
+                <View
+                  onLayout={[Function]}
+                  style={null}
+                >
+                  <View
+                    accessible={true}
+                    focusable={true}
+                    onClick={[Function]}
+                    onResponderGrant={[Function]}
+                    onResponderMove={[Function]}
+                    onResponderRelease={[Function]}
+                    onResponderTerminate={[Function]}
+                    onResponderTerminationRequest={[Function]}
+                    onStartShouldSetResponder={[Function]}
+                    style={
+                      Array [
+                        Object {
+                          "backgroundColor": "white",
+                          "borderTopColor": "black",
+                          "borderTopWidth": 1,
+                          "flex": 1,
+                          "padding": 12,
+                        },
+                        Object {
+                          "alignItems": "center",
+                          "flexDirection": "row",
+                          "justifyContent": "space-between",
+                        },
+                      ]
+                    }
+                  >
+                    <Text
+                      style={
+                        Object {
+                          "fontSize": 45,
+                        }
+                      }
+                    >
+                      🇦🇮
+                    </Text>
+                    <Text
+                      style={
+                        Object {
+                          "color": "black",
+                          "fontSize": 20,
+                        }
+                      }
+                    >
+                      Anguilla
+                       
+                      (
+                      +1264
+                      )
+                    </Text>
+                  </View>
+                </View>
+                <View
+                  onLayout={[Function]}
+                  style={null}
+                >
+                  <View
+                    accessible={true}
+                    focusable={true}
+                    onClick={[Function]}
+                    onResponderGrant={[Function]}
+                    onResponderMove={[Function]}
+                    onResponderRelease={[Function]}
+                    onResponderTerminate={[Function]}
+                    onResponderTerminationRequest={[Function]}
+                    onStartShouldSetResponder={[Function]}
+                    style={
+                      Array [
+                        Object {
+                          "backgroundColor": "white",
+                          "borderTopColor": "black",
+                          "borderTopWidth": 1,
+                          "flex": 1,
+                          "padding": 12,
+                        },
+                        Object {
+                          "alignItems": "center",
+                          "flexDirection": "row",
+                          "justifyContent": "space-between",
+                        },
+                      ]
+                    }
+                  >
+                    <Text
+                      style={
+                        Object {
+                          "fontSize": 45,
+                        }
+                      }
+                    >
+                      🇦🇶
+                    </Text>
+                    <Text
+                      style={
+                        Object {
+                          "color": "black",
+                          "fontSize": 20,
+                        }
+                      }
+                    >
+                      Antarctica
+                       
+                      (
+                      +672
+                      )
+                    </Text>
+                  </View>
+                </View>
+                <View
+                  onLayout={[Function]}
+                  style={null}
+                >
+                  <View
+                    accessible={true}
+                    focusable={true}
+                    onClick={[Function]}
+                    onResponderGrant={[Function]}
+                    onResponderMove={[Function]}
+                    onResponderRelease={[Function]}
+                    onResponderTerminate={[Function]}
+                    onResponderTerminationRequest={[Function]}
+                    onStartShouldSetResponder={[Function]}
+                    style={
+                      Array [
+                        Object {
+                          "backgroundColor": "white",
+                          "borderTopColor": "black",
+                          "borderTopWidth": 1,
+                          "flex": 1,
+                          "padding": 12,
+                        },
+                        Object {
+                          "alignItems": "center",
+                          "flexDirection": "row",
+                          "justifyContent": "space-between",
+                        },
+                      ]
+                    }
+                  >
+                    <Text
+                      style={
+                        Object {
+                          "fontSize": 45,
+                        }
+                      }
+                    >
+                      🇦🇬
+                    </Text>
+                    <Text
+                      style={
+                        Object {
+                          "color": "black",
+                          "fontSize": 20,
+                        }
+                      }
+                    >
+                      Antigua and Barbuda
+                       
+                      (
+                      +1268
+                      )
+                    </Text>
+                  </View>
+                </View>
+                <View
+                  style={
+                    Object {
+                      "height": 0,
+                    }
+                  }
+                />
+              </View>
+            </RCTScrollView>
+          </View>
+          <View
+            pointerEvents="box-none"
+            style={
+              Object {
+                "alignItems": "center",
+                "backgroundColor": "#00000000",
+                "height": "100%",
+                "position": "absolute",
+                "width": "100%",
+              }
+            }
+          >
+            <View
+              accessible={true}
+              focusable={true}
+              isTVSelectable={true}
+              onClick={[Function]}
+              onResponderGrant={[Function]}
+              onResponderMove={[Function]}
+              onResponderRelease={[Function]}
+              onResponderTerminate={[Function]}
+              onResponderTerminationRequest={[Function]}
+              onStartShouldSetResponder={[Function]}
+              style={
+                Object {
+                  "alignItems": "center",
+                  "backgroundColor": "#2F74C5",
+                  "borderColor": "#2F74C5",
+                  "borderRadius": 20,
+                  "borderWidth": 1,
+                  "bottom": "1%",
+                  "elevation": 5,
+                  "height": 42,
+                  "justifyContent": "center",
+                  "margin": 10,
+                  "opacity": 1,
+                  "position": "absolute",
+                  "shadowColor": "#000",
+                  "shadowOffset": Object {
+                    "height": 2,
+                    "width": 0,
+                  },
+                  "shadowOpacity": 0.25,
+                  "shadowRadius": 3.84,
+                  "width": 160,
+                }
+              }
+            >
+              <Text
+                style={
+                  Array [
+                    Object {
+                      "color": "white",
+                    },
+                    Object {},
+                  ]
+                }
+              >
+                close
+              </Text>
+            </View>
+          </View>
+        </View>
+      </Modal>
+    </View>
+  </View>
+</View>
+`;
