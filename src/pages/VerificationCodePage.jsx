@@ -28,7 +28,6 @@ export default function VerificationCode(props) {
 function confirmCode(code, props) {
   store.getState().profile.confirmation.confirm(code)
     .then(() => {
-      props.navigation.navigate('App');
     })
     .catch((err) => {
       alert(`Oops! something is wrong ${err}`);
