@@ -1,4 +1,4 @@
-import React, { Component, useState } from 'react';
+import React, { useState } from 'react';
 import { View, StyleSheet, Text } from 'react-native';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
@@ -7,7 +7,7 @@ import InputBar from '../components/InputBar';
 import StaticMap from '../components/StaticMap';
 import ContactsList from '../components/ContactsList';
 import { setPartyName } from '../stores/action/partyCreation';
-import { ApiService } from '../services/ApiService';
+import ApiService from '../services/ApiService';
 
 const styles = StyleSheet.create({
   container: {
@@ -39,16 +39,15 @@ const styles = StyleSheet.create({
 });
 
 function generateStringLocation(partyLocation) {
-    return `${partyLocation.latitude},${partyLocation.longitude}`;
+  return `${partyLocation.latitude},${partyLocation.longitude}`;
 }
 
 async function createParty(uid, partyName, partyLocation, selectedContacts) {
   const location = generateStringLocation(partyLocation);
-  console.log(JSON.stringify(selectedContacts));
+  const phoneNumbers = selectedContacts.map((contact) => (contact.phoneNumbers[0].number));
   const id = await ApiService.createParty(partyName, location);
-  console.log(JSON.stringify(id));
   await ApiService.addUsersByUid([uid], id.id);
-  await ApiService.addUsersByPhoneNumber(selectedContacts.map((contact) => (contact.phoneNumbers[0].number)), id.id);
+  await ApiService.addUsersByPhoneNumber(phoneNumbers, id.id);
 }
 
 function setName(props, name) {

@@ -3,7 +3,7 @@ import { View } from 'react-native';
 import * as firebase from 'firebase';
 import { connect } from 'react-redux';
 import { updatePhoneNumber, updatePicture, updateUid } from '../stores/action/profile';
-import { ApiService } from '../services/ApiService';
+import ApiService from '../services/ApiService';
 
 function authFailed(props, uid) {
   props.dispatch(updateUid(uid));

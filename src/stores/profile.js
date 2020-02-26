@@ -1,5 +1,6 @@
 const initialState = {
-  name: '',
+  firstname: '',
+  lastname: '',
   phone: '',
   uid: '',
   picture: '',
@@ -8,22 +9,28 @@ const initialState = {
 
 export default (state = initialState, action) => {
   switch (action.type) {
-    case 'GET_USER':
-      return { name: action.name };
     case 'UPDATE_UID':
-      return Object.assign({}, state, {
+      return {
+        ...state,
         uid: action.uid,
-      });
+      };
     case 'UPDATE_PHONE':
-      return Object.assign({}, state, {
+      return {
+        ...state,
         phone: action.phone,
-      });
+      };
     case 'UPDATE_PICTURE':
-      return Object.assign({}, state, {
+      return {
+        ...state,
         picture: action.picture,
-      });
+      };
+    case 'UPDATE_NAMES':
+      return {
+        ...state,
+        firstname: action.firstname,
+        lastname: action.lastname,
+      };
     default:
       return state;
-
   }
 };
