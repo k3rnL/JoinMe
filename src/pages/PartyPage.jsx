@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import {
-  View, StyleSheet, FlatList, TouchableOpacity
+  View, StyleSheet, FlatList, TouchableOpacity,
 } from 'react-native';
 import { connect } from 'react-redux';
 import { Linking } from 'expo';
@@ -52,12 +52,13 @@ function itemView(item) {
 }
 
 function PartyPage(props) {
-  const { party } = props;
+  const { party, navigation } = props;
 
   const [googleMapUrl] = useState(generateGoogleMapsUrl(party));
   const [members, setMembers] = useState([]);
 
   useEffect(() => {
+    navigation.setParams({ title: party.name });
     loadMembers(party, setMembers);
   }, []);
 
@@ -78,13 +79,21 @@ function PartyPage(props) {
 
 PartyPage.propTypes = {
   party: PropTypes.shape({
+    name: PropTypes.string,
     address: PropTypes.string,
     members: PropTypes.array,
   }),
+  navigation: PropTypes.shape({
+    setParams: PropTypes.func.isRequired,
+  }).isRequired,
 };
 
 PartyPage.defaultProps = {
   party: {},
 };
+
+PartyPage.navigationOptions = ({ navigation }) => ({
+  title: navigation.getParam('title', 'Party'),
+});
 
 export default connect((state) => ({ party: state.party.party }))(PartyPage);
