@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { View, StyleSheet, Text } from 'react-native';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+import Spinner from 'react-native-loading-spinner-overlay';
 import Button from '../components/Button';
 import InputBar from '../components/InputBar';
 import StaticMap from '../components/StaticMap';
@@ -45,7 +46,8 @@ function generateStringLocation(partyLocation) {
   return `${partyLocation.latitude},${partyLocation.longitude}`;
 }
 
-async function createParty(props, uid, partyName, partyLocation, selectedContacts) {
+async function createParty(props, uid, partyName, partyLocation, selectedContacts, setShowLoader) {
+  setShowLoader(true);
   const location = generateStringLocation(partyLocation);
   const phoneNumbers = selectedContacts.map((contact) => (contact.phoneNumbers[0].number));
   const id = await ApiService.createParty(partyName, location);
@@ -64,9 +66,11 @@ function PartyCreation(props) {
   const [error, setError] = useState('');
   const [eventName, setEventName] = useState('');
   const [selectedContacts, setSelectedContacts] = useState([]);
+  const [showLoader, setShowloader] = useState(false);
 
   return (
     <View style={[styles.container]}>
+      <Spinner visible={showLoader} />
       <StaticMap style={styles.header} location={generateStringLocation(partyLocation)} />
       <View style={styles.content}>
         <ErrorMessage message={error} />
@@ -76,7 +80,7 @@ function PartyCreation(props) {
             if (eventName === '') {
               setError('Do not forget to fill the name field');
             } else {
-              createParty(props, uid, eventName, partyLocation, selectedContacts);
+              createParty(props, uid, eventName, partyLocation, selectedContacts, setShowloader);
             }
           }}
         />
