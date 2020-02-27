@@ -4,6 +4,7 @@ import {
 } from 'react-native';
 import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
+import Spinner from 'react-native-loading-spinner-overlay';
 import ApiService from '../services/ApiService';
 import { setParty } from '../stores/action/party';
 import SwipeablePartyItemList from '../components/SwipeablePartyItemList';
@@ -27,9 +28,10 @@ function goToParty(props, party) {
   props.navigation.navigate('Party');
 }
 
-async function getParties(uid, setParties) {
+async function getParties(uid, setParties, setIsLoading) {
   const { parties } = await ApiService.getUserParties(uid);
   setParties(parties);
+  setIsLoading(false);
 }
 
 function deleteParty(uid, party, parties, setParties) {
@@ -39,15 +41,17 @@ function deleteParty(uid, party, parties, setParties) {
 
 function PartyList(props) {
   const [parties, setParties] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
 
   const { uid } = props;
 
   useEffect(() => {
-    getParties(uid, setParties);
+    getParties(uid, setParties, setIsLoading);
   }, []);
 
   return (
     <View style={styles.container}>
+      <Spinner visible={isLoading} />
       <FlatList
         keyExtractor={((item) => `${item.id}`)}
         data={parties}
