@@ -6,6 +6,7 @@ import * as Permissions from 'expo-permissions';
 import { Notifications } from 'expo';
 import { updatePhoneNumber, updatePicture, updateUid } from '../stores/action/profile';
 import ApiService from '../services/ApiService';
+import { setParty } from '../stores/action/party';
 
 async function handleNotification(uid) {
   const { status } = await Permissions.askAsync(Permissions.NOTIFICATIONS);
@@ -33,6 +34,15 @@ async function auth(props, uid, user) {
   props.dispatch(updatePhoneNumber(user.phone));
   props.dispatch(updatePicture(user.picture));
   await handleNotification(uid);
+
+  // Listen for Notif
+  Notifications.addListener((async (notification) => {
+    const party = await ApiService.getParty(notification.data.party_id);
+    props.dispatch(setParty(party));
+    // props.navigation.navigate('App');
+    props.navigation.navigate('Party');
+  }
+  ));
   props.navigation.navigate('App');
 }
 

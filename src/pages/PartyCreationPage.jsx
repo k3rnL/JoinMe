@@ -6,7 +6,6 @@ import Button from '../components/Button';
 import InputBar from '../components/InputBar';
 import StaticMap from '../components/StaticMap';
 import ContactsList from '../components/ContactsList';
-import { setPartyName } from '../stores/action/partyCreation';
 import ApiService from '../services/ApiService';
 import ErrorMessage from '../components/Error';
 import { setParty } from '../stores/action/party';
@@ -58,13 +57,8 @@ async function createParty(props, uid, partyName, partyLocation, selectedContact
   props.navigation.navigate('Party');
 }
 
-function setName(props, name, setEventName) {
-  setEventName(name);
-  props.dispatch(setPartyName(name));
-}
-
 function PartyCreation(props) {
-  const { uid, partyName, partyLocation } = props;
+  const { uid, partyLocation } = props;
 
   const [contactFilter, setContactFilter] = useState('');
   const [error, setError] = useState('');
@@ -82,7 +76,7 @@ function PartyCreation(props) {
             if (eventName === '') {
               setError('Do not forget to fill the name field');
             } else {
-              createParty(props, uid, partyName, partyLocation, selectedContacts);
+              createParty(props, uid, eventName, partyLocation, selectedContacts);
             }
           }}
         />
@@ -90,8 +84,8 @@ function PartyCreation(props) {
         <InputBar
           style={error ? { borderColor: 'red' } : {}}
           placeholder="Name your party !"
-          value={partyName}
-          onChangeText={(name) => setName(props, name, setEventName)}
+          value={eventName}
+          onChangeText={(name) => setEventName(name)}
         />
         <InputBar
           placeholder="Search for contacts"
@@ -117,7 +111,6 @@ function PartyCreation(props) {
 
 PartyCreation.propTypes = {
   uid: PropTypes.string,
-  partyName: PropTypes.string,
   partyLocation: PropTypes.shape({
     latitude: PropTypes.number,
     longitude: PropTypes.number,
@@ -128,7 +121,6 @@ PartyCreation.propTypes = {
 
 PartyCreation.defaultProps = {
   uid: '',
-  partyName: '',
   partyLocation: {
     latitude: 0,
     longitude: 0,
@@ -138,7 +130,6 @@ PartyCreation.defaultProps = {
 };
 
 export default connect((state) => ({
-  partyName: state.partyCreation.name,
   partyLocation: state.partyCreation.location,
   uid: state.profile.uid,
 }))(PartyCreation);
