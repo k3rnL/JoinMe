@@ -36,9 +36,11 @@ const HomeStack = createStackNavigator(
     },
     PartyList: {
       screen: PartyListPage,
+      navigationOptions: PartyListPage.navigationOptions,
     },
     Party: {
       screen: PartyPage,
+      navigationOptions: PartyPage.navigationOptions,
     },
 
   }, {

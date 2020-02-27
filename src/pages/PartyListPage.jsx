@@ -63,8 +63,6 @@ function PartyList(props) {
   );
 }
 
-export default connect((state) => ({ uid: state.profile.uid }))(PartyList);
-
 PartyList.propTypes = {
   uid: PropTypes.string,
 };
@@ -72,3 +70,9 @@ PartyList.propTypes = {
 PartyList.defaultProps = {
   uid: '',
 };
+
+PartyList.navigationOptions = () => ({
+  title: 'Your parties',
+});
+
+export default connect((state) => ({ uid: state.profile.uid }))(PartyList);
